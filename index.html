@@ -91,7 +91,7 @@
       display: grid;
       grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
       gap: 30px;
-      margin-bottom: 100px;
+      margin-bottom: 80px;
     }
 
     .gallery-item {
@@ -130,6 +130,70 @@
       letter-spacing: 0.5px;
     }
 
+    /* Testimonials Section */
+    .testimonials-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 25px;
+      margin-bottom: 80px;
+    }
+
+    .testimonial-card {
+      background: var(--card-luxury);
+      border: 1px solid var(--border-luxury);
+      padding: 30px;
+      border-radius: 16px;
+      backdrop-filter: blur(10px);
+    }
+
+    .testimonial-card p {
+      font-style: italic;
+      color: var(--text-muted);
+      font-weight: 300;
+      margin-bottom: 20px;
+    }
+
+    .testimonial-card h4 {
+      color: var(--accent-gold);
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 1.2rem;
+      margin: 0;
+    }
+
+    /* FAQ Section */
+    .faq-container {
+      max-width: 700px;
+      margin: 0 auto 80px auto;
+    }
+
+    .faq-item {
+      background: var(--card-luxury);
+      border: 1px solid var(--border-luxury);
+      border-radius: 12px;
+      margin-bottom: 15px;
+      overflow: hidden;
+    }
+
+    .faq-question {
+      padding: 20px 25px;
+      font-weight: 500;
+      cursor: pointer;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .faq-answer {
+      padding: 0 25px 20px 25px;
+      color: var(--text-muted);
+      font-weight: 300;
+      display: none;
+    }
+
+    .faq-item.active .faq-answer {
+      display: block;
+    }
+
     /* Luxury Order Box */
     .order-box {
       background: var(--card-luxury);
@@ -140,7 +204,7 @@
       position: relative;
       text-align: center;
       max-width: 650px;
-      margin: 0 auto;
+      margin: 0 auto 80px auto;
       box-shadow: 0 30px 60px rgba(0,0,0,0.5);
     }
 
@@ -226,6 +290,30 @@
       border-color: var(--accent-gold);
     }
 
+    /* Floating WhatsApp Button */
+    .floating-whatsapp {
+      position: fixed;
+      bottom: 25px;
+      right: 25px;
+      background: #25d366;
+      color: #fff;
+      width: 60px;
+      height: 60px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      box-shadow: 0 10px 25px rgba(0,0,0,0.4);
+      z-index: 1000;
+      text-decoration: none;
+      font-size: 28px;
+      transition: transform 0.3s ease;
+    }
+
+    .floating-whatsapp:hover {
+      transform: scale(1.1);
+    }
+
     footer {
       text-align: center;
       padding: 60px 20px;
@@ -262,6 +350,18 @@
       </div>
     </div>
 
+    <div class="section-title">Client <span>Testimonials</span></div>
+    <div class="testimonials-grid">
+      <div class="testimonial-card">
+        <p>"Incredible turnaround speed. The photo retouching looks completely natural and pristine."</p>
+        <h4>— Sarah M.</h4>
+      </div>
+      <div class="testimonial-card">
+        <p>"Sent my request via WhatsApp and had the final master file back within hours. Worth every cent."</p>
+        <h4>— David K.</h4>
+      </div>
+    </div>
+
     <div class="order-box">
       <div class="section-title" style="margin-bottom: 15px; font-size: 2rem;">Private Commission</div>
       <div class="price-tag">€5.00</div>
@@ -281,11 +381,40 @@
 
     </div>
 
+    <div class="section-title">Frequently Asked <span>Questions</span></div>
+    <div class="faq-container">
+      <div class="faq-item">
+        <div class="faq-question">How do I send my photos? <span>+</span></div>
+        <div class="faq-answer">Simply click the WhatsApp button, attach your photo directly to the chat, and describe what changes you would like made.</div>
+      </div>
+      <div class="faq-item">
+        <div class="faq-question">What is the delivery time? <span>+</span></div>
+        <div class="faq-answer">All commissions are completed and delivered straight to your WhatsApp within 24 hours of confirmation.</div>
+      </div>
+      <div class="faq-item">
+        <div class="faq-question">How does payment work? <span>+</span></div>
+        <div class="faq-answer">Once you are fully satisfied with your edited photo, you can securely pay the flat €5 fee via the Revolut link provided.</div>
+      </div>
+    </div>
+
   </div>
+
+  <a href="https://wa.me/353833753751?text=Hi,%20I%20would%20like%20to%20commission%20a%20photo%20edit:" target="_blank" class="floating-whatsapp" title="Chat on WhatsApp">💬</a>
 
   <footer>
     <p>&copy; 2026 PixelPerfect Atelier. All rights reserved.</p>
   </footer>
+
+  <script>
+    // FAQ Accordion Logic
+    const faqItems = document.querySelectorAll('.faq-item');
+    faqItems.forEach(item => {
+      const question = item.querySelector('.faq-question');
+      question.addEventListener('click', () => {
+        item.classList.toggle('active');
+      });
+    });
+  </script>
 
 </body>
 </html>
