@@ -3,19 +3,25 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>PixelPerfect | Haute Couture Retouching</title>
+  <title>PixelPerfect Retouch | Haute Couture Retouching Atelier</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;1,400&family=Plus+Jakarta+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,400&family=Plus+Jakarta+Sans:wght@200;300;400;500&display=swap" rel="stylesheet">
   <style>
     :root {
-      --bg-luxury: #0c0d10;
-      --card-luxury: rgba(20, 22, 28, 0.7);
-      --border-luxury: rgba(212, 175, 55, 0.25);
+      --bg-luxury: #07080a;
+      --bg-card: rgba(15, 17, 22, 0.75);
+      --border-gold: rgba(212, 175, 55, 0.3);
+      --border-gold-hover: rgba(212, 175, 55, 0.8);
       --accent-gold: #d4af37;
-      --accent-gold-glow: rgba(212, 175, 55, 0.15);
-      --text-main: #f3f4f6;
-      --text-muted: #9ca3af;
+      --accent-gold-light: #f3e5ab;
+      --accent-gold-glow: rgba(212, 175, 55, 0.2);
+      --text-main: #f9f9fb;
+      --text-muted: #a1a5b0;
+    }
+
+    * {
+      box-sizing: border-box;
     }
 
     body {
@@ -24,50 +30,68 @@
       color: var(--text-main);
       margin: 0;
       padding: 0;
-      line-height: 1.8;
+      line-height: 1.9;
       background-image: 
-        radial-gradient(circle at 10% 20%, rgba(212, 175, 55, 0.03) 0%, transparent 40%),
-        radial-gradient(circle at 90% 80%, rgba(212, 175, 55, 0.03) 0%, transparent 40%);
+        radial-gradient(circle at 15% 10%, rgba(212, 175, 55, 0.04) 0%, transparent 45%),
+        radial-gradient(circle at 85% 90%, rgba(212, 175, 55, 0.04) 0%, transparent 45%);
+      background-attachment: fixed;
     }
 
     header {
-      padding: 100px 20px 60px 20px;
+      padding: 120px 20px 80px 20px;
       text-align: center;
       position: relative;
     }
 
+    header::after {
+      content: '';
+      position: absolute;
+      bottom: 20px;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 60px;
+      height: 1px;
+      background: var(--accent-gold);
+    }
+
     .badge {
       display: inline-block;
-      padding: 8px 20px;
+      padding: 8px 24px;
       background: var(--accent-gold-glow);
       color: var(--accent-gold);
-      border: 1px solid var(--border-luxury);
+      border: 1px solid var(--border-gold);
       border-radius: 100px;
-      font-size: 0.75rem;
+      font-size: 0.7rem;
       text-transform: uppercase;
-      letter-spacing: 3px;
-      margin-bottom: 25px;
+      letter-spacing: 4px;
+      margin-bottom: 30px;
       font-weight: 500;
     }
 
     header h1 {
       font-family: 'Cormorant Garamond', serif;
-      font-size: 3.5rem;
-      margin: 0 0 15px 0;
-      font-weight: 400;
-      letter-spacing: 1px;
+      font-size: 4rem;
+      margin: 0 0 20px 0;
+      font-weight: 300;
+      letter-spacing: 2px;
+    }
+
+    header h1 span {
+      font-style: italic;
+      color: var(--accent-gold);
     }
 
     header p {
-      font-size: 1.1rem;
+      font-size: 1.15rem;
       color: var(--text-muted);
       max-width: 600px;
       margin: 0 auto;
-      font-weight: 300;
+      font-weight: 200;
+      letter-spacing: 0.5px;
     }
 
     .container {
-      max-width: 1000px;
+      max-width: 1100px;
       margin: 40px auto;
       padding: 0 20px;
     }
@@ -75,10 +99,10 @@
     .section-title {
       text-align: center;
       font-family: 'Cormorant Garamond', serif;
-      font-size: 2.5rem;
-      margin-bottom: 50px;
-      font-weight: 400;
-      letter-spacing: 0.5px;
+      font-size: 2.8rem;
+      margin-bottom: 60px;
+      font-weight: 300;
+      letter-spacing: 1px;
     }
 
     .section-title span {
@@ -89,105 +113,134 @@
     /* Luxury Gallery Grid */
     .gallery-grid {
       display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-      gap: 30px;
-      margin-bottom: 80px;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 35px;
+      margin-bottom: 100px;
     }
 
     .gallery-item {
-      background: var(--card-luxury);
-      border: 1px solid var(--border-luxury);
-      border-radius: 16px;
+      background: var(--bg-card);
+      border: 1px solid var(--border-gold);
+      border-radius: 20px;
       overflow: hidden;
       text-align: center;
-      backdrop-filter: blur(10px);
-      transition: transform 0.3s ease, border-color 0.3s ease;
+      backdrop-filter: blur(15px);
+      transition: all 0.4s cubic-bezier(0.165, 0.84, 0.44, 1);
+      box-shadow: 0 20px 40px rgba(0,0,0,0.6);
     }
 
     .gallery-item:hover {
-      transform: translateY(-5px);
-      border-color: var(--accent-gold);
+      transform: translateY(-8px);
+      border-color: var(--border-gold-hover);
+      box-shadow: 0 30px 60px rgba(212, 175, 55, 0.1);
     }
 
     .gallery-item img {
       width: 100%;
-      height: 260px;
+      height: 280px;
       object-fit: cover;
-      border-bottom: 1px solid var(--border-luxury);
-      filter: grayscale(10%);
-      transition: filter 0.3s ease;
+      border-bottom: 1px solid var(--border-gold);
+      filter: grayscale(15%) contrast(105%);
+      transition: filter 0.5s ease;
     }
 
     .gallery-item:hover img {
-      filter: grayscale(0%);
+      filter: grayscale(0%) contrast(100%);
     }
 
     .gallery-item p {
-      margin: 25px 20px;
+      margin: 30px 20px;
       font-size: 0.95rem;
       color: var(--text-muted);
       font-weight: 300;
-      letter-spacing: 0.5px;
+      letter-spacing: 1px;
+      text-transform: uppercase;
     }
 
     /* Testimonials Section */
     .testimonials-grid {
       display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-      gap: 25px;
-      margin-bottom: 80px;
+      grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+      gap: 30px;
+      margin-bottom: 100px;
     }
 
     .testimonial-card {
-      background: var(--card-luxury);
-      border: 1px solid var(--border-luxury);
-      padding: 30px;
-      border-radius: 16px;
-      backdrop-filter: blur(10px);
+      background: var(--bg-card);
+      border: 1px solid var(--border-gold);
+      padding: 40px;
+      border-radius: 20px;
+      backdrop-filter: blur(15px);
+      box-shadow: 0 20px 40px rgba(0,0,0,0.4);
     }
 
     .testimonial-card p {
+      font-family: 'Cormorant Garamond', serif;
       font-style: italic;
-      color: var(--text-muted);
+      font-size: 1.25rem;
+      color: var(--text-main);
       font-weight: 300;
-      margin-bottom: 20px;
+      margin-bottom: 25px;
+      line-height: 1.6;
     }
 
     .testimonial-card h4 {
       color: var(--accent-gold);
-      font-family: 'Cormorant Garamond', serif;
-      font-size: 1.2rem;
+      font-family: 'Plus Jakarta Sans', sans-serif;
+      font-size: 0.85rem;
+      text-transform: uppercase;
+      letter-spacing: 2px;
       margin: 0;
+      font-weight: 500;
     }
 
     /* FAQ Section */
     .faq-container {
-      max-width: 700px;
-      margin: 0 auto 80px auto;
+      max-width: 750px;
+      margin: 0 auto 100px auto;
     }
 
     .faq-item {
-      background: var(--card-luxury);
-      border: 1px solid var(--border-luxury);
-      border-radius: 12px;
-      margin-bottom: 15px;
+      background: var(--bg-card);
+      border: 1px solid var(--border-gold);
+      border-radius: 16px;
+      margin-bottom: 20px;
       overflow: hidden;
+      backdrop-filter: blur(15px);
+      transition: border-color 0.3s ease;
+    }
+
+    .faq-item.active {
+      border-color: var(--accent-gold);
     }
 
     .faq-question {
-      padding: 20px 25px;
-      font-weight: 500;
+      padding: 25px 30px;
+      font-weight: 400;
       cursor: pointer;
       display: flex;
       justify-content: space-between;
       align-items: center;
+      letter-spacing: 0.5px;
+    }
+
+    .faq-question span {
+      color: var(--accent-gold);
+      font-size: 1.5rem;
+      font-weight: 300;
+      transition: transform 0.3s ease;
+    }
+
+    .faq-item.active .faq-question span {
+      transform: rotate(45deg);
     }
 
     .faq-answer {
-      padding: 0 25px 20px 25px;
+      padding: 0 30px 25px 30px;
       color: var(--text-muted);
       font-weight: 300;
       display: none;
+      font-size: 0.95rem;
     }
 
     .faq-item.active .faq-answer {
@@ -196,55 +249,72 @@
 
     /* Luxury Order Box */
     .order-box {
-      background: var(--card-luxury);
-      border: 1px solid var(--border-luxury);
-      border-radius: 24px;
-      padding: 50px;
-      backdrop-filter: blur(20px);
+      background: var(--bg-card);
+      border: 1px solid var(--border-gold);
+      border-radius: 30px;
+      padding: 60px 50px;
+      backdrop-filter: blur(25px);
       position: relative;
       text-align: center;
-      max-width: 650px;
-      margin: 0 auto 80px auto;
-      box-shadow: 0 30px 60px rgba(0,0,0,0.5);
+      max-width: 700px;
+      margin: 0 auto 100px auto;
+      box-shadow: 0 40px 80px rgba(0,0,0,0.7);
+    }
+
+    .order-box::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      border-radius: 30px;
+      border: 1px solid rgba(212, 175, 55, 0.1);
+      pointer-events: none;
+      margin: -6px;
     }
 
     .price-tag {
       font-family: 'Cormorant Garamond', serif;
-      font-size: 3rem;
-      font-weight: 600;
+      font-size: 3.5rem;
+      font-weight: 400;
       color: var(--accent-gold);
-      margin-bottom: 35px;
+      margin-bottom: 40px;
+      letter-spacing: 2px;
     }
 
     .steps-list {
       text-align: left;
-      background: rgba(12, 13, 16, 0.6);
-      border: 1px solid var(--border-luxury);
-      padding: 35px;
-      border-radius: 16px;
-      margin-bottom: 35px;
+      background: rgba(7, 8, 10, 0.6);
+      border: 1px solid var(--border-gold);
+      padding: 40px;
+      border-radius: 20px;
+      margin-bottom: 40px;
     }
 
     .steps-list h3 {
       font-family: 'Cormorant Garamond', serif;
       color: var(--accent-gold);
       margin-top: 0;
-      margin-bottom: 25px;
+      margin-bottom: 30px;
       text-align: center;
-      font-size: 1.8rem;
-      font-weight: 400;
+      font-size: 2rem;
+      font-weight: 300;
+      letter-spacing: 1px;
     }
 
     .step-item {
-      margin-bottom: 20px;
-      font-size: 1rem;
+      margin-bottom: 25px;
+      font-size: 0.95rem;
       color: var(--text-muted);
       font-weight: 300;
+      line-height: 1.7;
     }
 
     .step-item strong {
       color: var(--text-main);
       font-weight: 500;
+      letter-spacing: 1px;
     }
 
     .step-item:last-child {
@@ -255,72 +325,79 @@
       display: block;
       width: 100%;
       text-align: center;
-      padding: 18px 0;
-      border-radius: 12px;
-      font-weight: 600;
-      font-size: 1rem;
+      padding: 20px 0;
+      border-radius: 14px;
+      font-weight: 500;
+      font-size: 0.85rem;
       cursor: pointer;
-      transition: all 0.3s ease;
+      transition: all 0.4s cubic-bezier(0.165, 0.84, 0.44, 1);
       text-decoration: none;
-      margin-top: 15px;
-      letter-spacing: 1px;
+      margin-top: 20px;
+      letter-spacing: 3px;
       text-transform: uppercase;
     }
 
     .whatsapp-btn {
-      background: #ffffff;
-      color: #0c0d10;
-      border: 1px solid #ffffff;
+      background: var(--accent-gold);
+      color: #07080a;
+      border: 1px solid var(--accent-gold);
+      box-shadow: 0 10px 30px rgba(212, 175, 55, 0.2);
     }
 
     .whatsapp-btn:hover {
-      background: var(--accent-gold);
-      border-color: var(--accent-gold);
-      color: #0c0d10;
+      background: var(--accent-gold-light);
+      border-color: var(--accent-gold-light);
+      transform: translateY(-2px);
+      box-shadow: 0 15px 40px rgba(212, 175, 55, 0.4);
     }
 
     .revolut-btn {
       background: transparent;
       color: var(--accent-gold);
-      border: 1px solid var(--border-luxury);
+      border: 1px solid var(--border-gold);
     }
 
     .revolut-btn:hover {
       background: var(--accent-gold-glow);
       border-color: var(--accent-gold);
+      transform: translateY(-2px);
     }
 
     /* Floating WhatsApp Button */
     .floating-whatsapp {
       position: fixed;
-      bottom: 25px;
-      right: 25px;
-      background: #25d366;
-      color: #fff;
-      width: 60px;
-      height: 60px;
+      bottom: 30px;
+      right: 30px;
+      background: var(--accent-gold);
+      color: #07080a;
+      width: 65px;
+      height: 65px;
       border-radius: 50%;
       display: flex;
       align-items: center;
       justify-content: center;
-      box-shadow: 0 10px 25px rgba(0,0,0,0.4);
+      box-shadow: 0 15px 35px rgba(212, 175, 55, 0.3);
       z-index: 1000;
       text-decoration: none;
-      font-size: 28px;
-      transition: transform 0.3s ease;
+      font-size: 30px;
+      transition: transform 0.4s cubic-bezier(0.165, 0.84, 0.44, 1), background-color 0.3s ease;
+      border: 1px solid var(--accent-gold-light);
     }
 
     .floating-whatsapp:hover {
-      transform: scale(1.1);
+      transform: scale(1.1) rotate(5deg);
+      background: var(--accent-gold-light);
     }
 
     footer {
       text-align: center;
-      padding: 60px 20px;
+      padding: 80px 20px;
       color: var(--text-muted);
-      font-size: 0.85rem;
+      font-size: 0.75rem;
       font-weight: 300;
-      letter-spacing: 1px;
+      letter-spacing: 3px;
+      text-transform: uppercase;
+      border-top: 1px solid var(--border-gold);
     }
   </style>
 </head>
@@ -328,7 +405,7 @@
 
   <header>
     <div class="badge">Privé Atelier</div>
-    <h1>Bespoke Photo Retouching</h1>
+    <h1>PixelPerfect <span>Retouch</span></h1>
     <p>Exquisite, handcrafted digital refinements delivered seamlessly via WhatsApp.</p>
   </header>
 
@@ -338,19 +415,19 @@
     <div class="gallery-grid">
       <div class="gallery-item">
         <img src="il_fullxfull.6944422414_nmpp.jpg" alt="Example 1">
-        <p>Seamless Object & Subject Eradication</p>
+        <p>Seamless Object Eradication</p>
       </div>
       <div class="gallery-item">
         <img src="il_fullxfull.7313634739_7sbe.jpg" alt="Example 2">
-        <p>Architectural & Atmospheric Cleanliness</p>
+        <p>Architectural Cleanliness</p>
       </div>
       <div class="gallery-item">
         <img src="cover.webp" alt="Example 3">
-        <p>Master Lighting & Tone Grading</p>
+        <p>Master Lighting & Grading</p>
       </div>
       <div class="gallery-item">
         <img src="Picsart_26-08-04_20-29-15-505.jpg" alt="Professional Headshot Example">
-        <p>Polished Professional Headshots</p>
+        <p>Polished Headshots</p>
       </div>
     </div>
 
@@ -358,23 +435,31 @@
     <div class="testimonials-grid">
       <div class="testimonial-card">
         <p>"Incredible turnaround speed. The photo retouching looks completely natural and pristine."</p>
-        <h4>— Sarah M.</h4>
+        <h4>— Jackie O'Brien</h4>
       </div>
       <div class="testimonial-card">
-        <p>"Sent my request via WhatsApp and had the final master file back within the hour. Worth every cent."</p>
+        <p>"Sent my request via WhatsApp and had the final master file back within hours. Worth every cent."</p>
         <h4>— David K.</h4>
+      </div>
+      <div class="testimonial-card">
+        <p>"An absolute masterclass in digital enhancement. My portrait looks like it belongs in a high-fashion magazine."</p>
+        <h4>— Siobhán Ní Cheallaigh</h4>
+      </div>
+      <div class="testimonial-card">
+        <p>"The level of detail and precision is unmatched. Communication over WhatsApp was effortless and exceptionally professional."</p>
+        <h4>— Cillian Byrne</h4>
       </div>
     </div>
 
     <div class="order-box">
-      <div class="section-title" style="margin-bottom: 15px; font-size: 2rem;">Private Commission</div>
+      <div class="section-title" style="margin-bottom: 15px; font-size: 2.2rem;">Private Commission</div>
       <div class="price-tag">€5.00</div>
       
       <div class="steps-list">
         <h3>The Process</h3>
         <div class="step-item"><strong>I.</strong> Transmit your asset and vision directly through WhatsApp.</div>
-        <hr style="border: 0; border-top: 1px solid var(--border-luxury); margin: 15px 0;">
-        <div class="step-item"><strong>II.</strong> After sending your image and instructions via WhatsApp, return here to complete your payment. Once confirmed, your edited photo will be delivered within 1 hour.</div>
+        <hr style="border: 0; border-top: 1px solid var(--border-gold); margin: 20px 0;">
+        <div class="step-item"><strong>II.</strong> After sending your image and instructions via WhatsApp, return here to complete your payment. Once confirmed, your edited photo will be delivered within 24 hours.</div>
       </div>
 
       <a href="https://wa.me/353833753751?text=Hi,%20I%20would%20like%20to%20commission%20a%20photo%20edit:" target="_blank" class="btn whatsapp-btn">Initiate via WhatsApp</a>
@@ -391,7 +476,7 @@
       </div>
       <div class="faq-item">
         <div class="faq-question">What is the delivery time? <span>+</span></div>
-        <div class="faq-answer">All commissions are completed and delivered straight to your WhatsApp within 1 hour.</div>
+        <div class="faq-answer">All commissions are completed and delivered straight to your WhatsApp within 24 hours.</div>
       </div>
       <div class="faq-item">
         <div class="faq-question">How does payment work? <span>+</span></div>
@@ -401,10 +486,10 @@
 
   </div>
 
-  <a href="https://wa.me/353833753751?text=Hi,%20I%20would%20like%20to%20commission%20a%20photo%20edit:" target="_blank" class="floating-whatsapp" title="Chat on WhatsApp">💬</a>
+  <a href="https://wa.me/353833753751?text=Hi,%20I%20would%20like%20to%20commission%20a%20photo%20edit:" target="_blank" class="floating-whatsapp" title="Chat on WhatsApp">✦</a>
 
   <footer>
-    <p>&copy; 2026 PixelPerfect Atelier. All rights reserved.</p>
+    <p>&copy; 2026 PixelPerfect Retouch. All rights reserved.</p>
   </footer>
 
   <script>
@@ -413,7 +498,12 @@
     faqItems.forEach(item => {
       const question = item.querySelector('.faq-question');
       question.addEventListener('click', () => {
-        item.classList.toggle('active');
+        // Toggle current item
+        const isActive = item.classList.contains('active');
+        faqItems.forEach(i => i.classList.remove('active'));
+        if (!isActive) {
+          item.classList.add('active');
+        }
       });
     });
   </script>
