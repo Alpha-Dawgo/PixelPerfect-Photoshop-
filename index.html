@@ -192,6 +192,7 @@
       transition: opacity 0.2s, transform 0.2s, box-shadow 0.2s;
       box-shadow: 0 5px 20px rgba(56, 189, 248, 0.3);
       text-decoration: none;
+      margin-top: 10px;
     }
 
     .btn:hover {
@@ -200,17 +201,32 @@
       box-shadow: 0 8px 25px rgba(56, 189, 248, 0.5);
     }
 
-    .payment-section {
-      margin-top: 30px;
-      text-align: center;
-      border-top: 1px solid var(--card-border);
-      padding-top: 30px;
+    .revolut-btn {
+      background: #0075eb;
+      color: #ffffff;
     }
 
-    .payment-section p {
-      color: var(--text-muted);
-      margin-bottom: 15px;
-      font-size: 0.95rem;
+    .revolut-btn:hover {
+      background: #005bb5;
+    }
+
+    /* Notice Banner Styling */
+    .notice-banner {
+      background: rgba(56, 189, 248, 0.1);
+      border: 1px dashed var(--accent-blue);
+      border-radius: 10px;
+      padding: 15px 20px;
+      text-align: center;
+      margin: 25px 0;
+      box-shadow: 0 0 15px rgba(56, 189, 248, 0.15);
+    }
+
+    .notice-banner p {
+      margin: 0;
+      color: var(--accent-blue);
+      font-weight: 700;
+      font-size: 1rem;
+      letter-spacing: 0.3px;
     }
 
     footer {
@@ -275,13 +291,21 @@
           <textarea id="instructions" name="instructions" rows="4" required placeholder="Describe what you want changed (e.g., remove background, fix lighting, smooth skin)..."></textarea>
         </div>
 
-        <button type="submit" class="btn">Submit Request</button>
-      </form>
+        <div style="margin-top: 25px; text-align: center;">
+          <p style="color: var(--text-muted); font-size: 0.95rem; margin-bottom: 10px;">Step 1: Pay your €5 fee securely via Revolut</p>
+          <a href="https://revolut.me/shanedzlt" target="_blank" class="btn revolut-btn">Pay €5 via Revolut</a>
+        </div>
 
-      <div class="payment-section">
-        <p>Already submitted your request? Click below to pay your €5 fee securely via Revolut:</p>
-        <a href="https://revolut.me/shanedzlt" target="_blank" class="btn" style="background: #0075eb; color: #ffffff;">Pay €5 via Revolut</a>
-      </div>
+        <div class="notice-banner">
+          <p>⚡ Once payment is sent, your edited order will be delivered to your email within 24 hours!</p>
+        </div>
+
+        <div style="text-align: center;">
+          <p style="color: var(--text-muted); font-size: 0.95rem; margin-bottom: 10px;">Step 2: Submit your details</p>
+          <button type="submit" class="btn">Submit Request</button>
+        </div>
+
+      </form>
 
     </div>
 
