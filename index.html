@@ -197,12 +197,26 @@
       cursor: pointer;
       transition: opacity 0.2s, transform 0.2s, box-shadow 0.2s;
       box-shadow: 0 5px 20px rgba(56, 189, 248, 0.3);
+      text-decoration: none;
     }
 
     .btn:hover {
       opacity: 0.95;
       transform: translateY(-2px);
       box-shadow: 0 8px 25px rgba(56, 189, 248, 0.5);
+    }
+
+    .payment-section {
+      margin-top: 30px;
+      text-align: center;
+      border-top: 1px solid var(--card-border);
+      padding-top: 30px;
+    }
+
+    .payment-section p {
+      color: var(--text-muted);
+      margin-bottom: 15px;
+      font-size: 0.95rem;
     }
 
     footer {
@@ -267,8 +281,14 @@
           <textarea id="instructions" name="instructions" rows="4" required placeholder="Describe what you want changed (e.g., remove background, fix lighting, smooth skin)..."></textarea>
         </div>
 
-        <button type="submit" class="btn">Send Request & Pay €5</button>
+        <button type="submit" class="btn">Submit Request</button>
       </form>
+
+      <div class="payment-section">
+        <p>Already submitted your request? Click below to pay your €5 fee securely via Revolut:</p>
+        <a href="https://revolut.me/shanedzlt" target="_blank" class="btn" style="background: #0075eb; color: #ffffff;">Pay €5 via Revolut</a>
+      </div>
+
     </div>
 
   </div>
