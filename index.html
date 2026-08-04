@@ -3,164 +3,184 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>PixelPerfect | Custom Photoshop Requests - €5</title>
+  <title>PixelPerfect | Haute Couture Retouching</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;1,400&family=Plus+Jakarta+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
   <style>
     :root {
-      --bg-color: #070b19;
-      --card-bg: #111827;
-      --card-border: rgba(56, 189, 248, 0.2);
-      --accent-blue: #38bdf8;
-      --accent-glow: rgba(56, 189, 248, 0.4);
-      --text-main: #f8fafc;
-      --text-muted: #94a3b8;
+      --bg-luxury: #0c0d10;
+      --card-luxury: rgba(20, 22, 28, 0.7);
+      --border-luxury: rgba(212, 175, 55, 0.25);
+      --accent-gold: #d4af37;
+      --accent-gold-glow: rgba(212, 175, 55, 0.15);
+      --text-main: #f3f4f6;
+      --text-muted: #9ca3af;
     }
 
     body {
-      font-family: 'system-ui', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
-      background-color: var(--bg-color);
+      font-family: 'Plus Jakarta Sans', sans-serif;
+      background-color: var(--bg-luxury);
       color: var(--text-main);
       margin: 0;
       padding: 0;
-      line-height: 1.7;
+      line-height: 1.8;
+      background-image: 
+        radial-gradient(circle at 10% 20%, rgba(212, 175, 55, 0.03) 0%, transparent 40%),
+        radial-gradient(circle at 90% 80%, rgba(212, 175, 55, 0.03) 0%, transparent 40%);
     }
 
     header {
-      background: radial-gradient(circle at top, #1e1b4b 0%, var(--bg-color) 70%);
-      border-bottom: 1px solid var(--card-border);
-      padding: 80px 20px 60px 20px;
+      padding: 100px 20px 60px 20px;
       text-align: center;
+      position: relative;
     }
 
     .badge {
       display: inline-block;
-      padding: 6px 16px;
-      background: rgba(56, 189, 248, 0.1);
-      color: var(--accent-blue);
-      border: 1px solid var(--accent-blue);
-      border-radius: 50px;
-      font-size: 0.85rem;
+      padding: 8px 20px;
+      background: var(--accent-gold-glow);
+      color: var(--accent-gold);
+      border: 1px solid var(--border-luxury);
+      border-radius: 100px;
+      font-size: 0.75rem;
       text-transform: uppercase;
-      letter-spacing: 2px;
-      margin-bottom: 20px;
-      font-weight: 700;
-      box-shadow: 0 0 15px rgba(56, 189, 248, 0.2);
+      letter-spacing: 3px;
+      margin-bottom: 25px;
+      font-weight: 500;
     }
 
     header h1 {
-      font-size: 3rem;
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 3.5rem;
       margin: 0 0 15px 0;
-      font-weight: 800;
-      letter-spacing: -0.5px;
+      font-weight: 400;
+      letter-spacing: 1px;
     }
 
     header p {
-      font-size: 1.15rem;
+      font-size: 1.1rem;
       color: var(--text-muted);
-      max-width: 650px;
+      max-width: 600px;
       margin: 0 auto;
+      font-weight: 300;
     }
 
     .container {
-      max-width: 1100px;
-      margin: 60px auto;
+      max-width: 1000px;
+      margin: 40px auto;
       padding: 0 20px;
     }
 
     .section-title {
       text-align: center;
-      font-size: 2rem;
-      margin-bottom: 40px;
-      font-weight: 700;
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 2.5rem;
+      margin-bottom: 50px;
+      font-weight: 400;
+      letter-spacing: 0.5px;
     }
 
     .section-title span {
-      color: var(--accent-blue);
+      color: var(--accent-gold);
+      font-style: italic;
     }
 
-    /* Gallery Grid Styling */
+    /* Luxury Gallery Grid */
     .gallery-grid {
       display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-      gap: 25px;
-      margin-bottom: 80px;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 30px;
+      margin-bottom: 100px;
     }
 
     .gallery-item {
-      background: var(--card-bg);
-      border: 1px solid var(--card-border);
-      border-radius: 12px;
+      background: var(--card-luxury);
+      border: 1px solid var(--border-luxury);
+      border-radius: 16px;
       overflow: hidden;
       text-align: center;
-      padding-bottom: 20px;
-      box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+      backdrop-filter: blur(10px);
+      transition: transform 0.3s ease, border-color 0.3s ease;
+    }
+
+    .gallery-item:hover {
+      transform: translateY(-5px);
+      border-color: var(--accent-gold);
     }
 
     .gallery-item img {
       width: 100%;
-      height: 240px;
+      height: 260px;
       object-fit: cover;
-      border-bottom: 1px solid var(--card-border);
-      background: #1e293b;
+      border-bottom: 1px solid var(--border-luxury);
+      filter: grayscale(10%);
+      transition: filter 0.3s ease;
+    }
+
+    .gallery-item:hover img {
+      filter: grayscale(0%);
     }
 
     .gallery-item p {
-      margin: 20px 15px 0 15px;
+      margin: 25px 20px;
       font-size: 0.95rem;
       color: var(--text-muted);
-      font-weight: 500;
+      font-weight: 300;
+      letter-spacing: 0.5px;
     }
 
-    /* Order Box Styling */
+    /* Luxury Order Box */
     .order-box {
-      background: var(--card-bg);
-      border: 1px solid var(--card-border);
-      border-radius: 16px;
-      padding: 40px;
-      box-shadow: 0 20px 50px rgba(0,0,0,0.4);
+      background: var(--card-luxury);
+      border: 1px solid var(--border-luxury);
+      border-radius: 24px;
+      padding: 50px;
+      backdrop-filter: blur(20px);
       position: relative;
       text-align: center;
-      max-width: 700px;
+      max-width: 650px;
       margin: 0 auto;
-    }
-
-    .order-box::before {
-      content: '';
-      position: absolute;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 4px;
-      background: linear-gradient(90deg, transparent, var(--accent-blue), transparent);
+      box-shadow: 0 30px 60px rgba(0,0,0,0.5);
     }
 
     .price-tag {
-      font-size: 2.2rem;
-      font-weight: 800;
-      color: var(--accent-blue);
-      margin-bottom: 25px;
-      text-shadow: 0 0 20px rgba(56, 189, 248, 0.3);
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 3rem;
+      font-weight: 600;
+      color: var(--accent-gold);
+      margin-bottom: 35px;
     }
 
     .steps-list {
       text-align: left;
-      background: #070b19;
-      border: 1px solid var(--card-border);
-      padding: 30px;
-      border-radius: 12px;
-      margin-bottom: 30px;
+      background: rgba(12, 13, 16, 0.6);
+      border: 1px solid var(--border-luxury);
+      padding: 35px;
+      border-radius: 16px;
+      margin-bottom: 35px;
     }
 
     .steps-list h3 {
-      color: var(--accent-blue);
+      font-family: 'Cormorant Garamond', serif;
+      color: var(--accent-gold);
       margin-top: 0;
-      margin-bottom: 20px;
+      margin-bottom: 25px;
       text-align: center;
-      font-size: 1.4rem;
+      font-size: 1.8rem;
+      font-weight: 400;
     }
 
     .step-item {
       margin-bottom: 20px;
-      font-size: 1.05rem;
+      font-size: 1rem;
+      color: var(--text-muted);
+      font-weight: 300;
+    }
+
+    .step-item strong {
+      color: var(--text-main);
+      font-weight: 500;
     }
 
     .step-item:last-child {
@@ -170,106 +190,101 @@
     .btn {
       display: block;
       width: 100%;
-      background: var(--accent-blue);
-      color: #070b19;
       text-align: center;
-      padding: 16px 0;
-      border: none;
-      border-radius: 8px;
-      font-weight: 800;
-      font-size: 1.15rem;
+      padding: 18px 0;
+      border-radius: 12px;
+      font-weight: 600;
+      font-size: 1rem;
       cursor: pointer;
-      transition: opacity 0.2s, transform 0.2s, box-shadow 0.2s;
-      box-shadow: 0 5px 20px rgba(56, 189, 248, 0.3);
+      transition: all 0.3s ease;
       text-decoration: none;
-      margin-top: 10px;
-    }
-
-    .btn:hover {
-      opacity: 0.95;
-      transform: translateY(-2px);
-      box-shadow: 0 8px 25px rgba(56, 189, 248, 0.5);
+      margin-top: 15px;
+      letter-spacing: 1px;
+      text-transform: uppercase;
     }
 
     .whatsapp-btn {
-      background: #25d366;
-      color: #ffffff;
-      margin-bottom: 15px;
+      background: #ffffff;
+      color: #0c0d10;
+      border: 1px solid #ffffff;
     }
 
     .whatsapp-btn:hover {
-      background: #1ebe5d;
+      background: var(--accent-gold);
+      border-color: var(--accent-gold);
+      color: #0c0d10;
     }
 
     .revolut-btn {
-      background: #0075eb;
-      color: #ffffff;
+      background: transparent;
+      color: var(--accent-gold);
+      border: 1px solid var(--border-luxury);
     }
 
     .revolut-btn:hover {
-      background: #005bb5;
+      background: var(--accent-gold-glow);
+      border-color: var(--accent-gold);
     }
 
     footer {
       text-align: center;
-      padding: 40px 20px;
-      background: #04060e;
-      border-top: 1px solid var(--card-border);
+      padding: 60px 20px;
       color: var(--text-muted);
-      font-size: 0.9rem;
-      margin-top: 80px;
+      font-size: 0.85rem;
+      font-weight: 300;
+      letter-spacing: 1px;
     }
   </style>
 </head>
 <body>
 
   <header>
-    <div class="badge">Professional Quality</div>
-    <h1>Custom Photoshop Requests</h1>
-    <p>Get your professionally edited photo delivered straight to you in 3 simple steps via WhatsApp.</p>
+    <div class="badge">Privé Atelier</div>
+    <h1>Bespoke Photo Retouching</h1>
+    <p>Exquisite, handcrafted digital refinements delivered seamlessly via WhatsApp.</p>
   </header>
 
   <div class="container">
     
-    <div class="section-title">Before & After <span>Work Gallery</span></div>
+    <div class="section-title">Selected <span>Portfolio</span></div>
     <div class="gallery-grid">
       <div class="gallery-item">
         <img src="il_fullxfull.6944422414_nmpp.jpg" alt="Example 1">
-        <p>Unwanted Person / Object Removal</p>
+        <p>Seamless Object & Subject Eradication</p>
       </div>
       <div class="gallery-item">
         <img src="il_fullxfull.7313634739_7sbe.jpg" alt="Example 2">
-        <p>Background Cleanup & Retouching</p>
+        <p>Architectural & Atmospheric Cleanliness</p>
       </div>
       <div class="gallery-item">
         <img src="cover.webp" alt="Example 3">
-        <p>Professional Cleanup & Lighting</p>
+        <p>Master Lighting & Tone Grading</p>
       </div>
     </div>
 
     <div class="order-box">
-      <div class="section-title" style="margin-bottom: 10px;">How It Works</div>
-      <div class="price-tag">Flat Rate: €5.00</div>
+      <div class="section-title" style="margin-bottom: 15px; font-size: 2rem;">Private Commission</div>
+      <div class="price-tag">€5.00</div>
       
       <div class="steps-list">
-        <h3>3 Easy Steps</h3>
-        <div class="step-item"><strong>Step 1:</strong> Send your photo and instructions directly on WhatsApp.</div>
-        <hr style="border: 0; border-top: 1px solid rgba(56, 189, 248, 0.1); margin: 15px 0;">
-        <div class="step-item"><strong>Step 2:</strong> Delivery takes within <strong>24 hours</strong> of your payment.</div>
-        <hr style="border: 0; border-top: 1px solid rgba(56, 189, 248, 0.1); margin: 15px 0;">
-        <div class="step-item"><strong>Step 3:</strong> Pay your <strong>€5 fee</strong> securely via Revolut.</div>
+        <h3>The Process</h3>
+        <div class="step-item"><strong>I.</strong> Transmit your asset and vision directly through WhatsApp.</div>
+        <hr style="border: 0; border-top: 1px solid var(--border-luxury); margin: 15px 0;">
+        <div class="step-item"><strong>II.</strong> Receive your master file within <strong>24 hours</strong>.</div>
+        <hr style="border: 0; border-top: 1px solid var(--border-luxury); margin: 15px 0;">
+        <div class="step-item"><strong>III.</strong> Honor the flat fee securely via Revolut.</div>
       </div>
 
-      <a href="https://wa.me/353833753751?text=Hi,%20here%20is%20my%20photo%20and%20instructions%20for%20editing:" target="_blank" class="btn whatsapp-btn">1. Send Photo via WhatsApp</a>
+      <a href="https://wa.me/353833753751?text=Hi,%20I%20would%20like%20to%20commission%20a%20photo%20edit:" target="_blank" class="btn whatsapp-btn">Initiate via WhatsApp</a>
       
-      <a href="https://revolut.me/shanedzlt" target="_blank" class="btn revolut-btn">3. Pay €5 via Revolut</a>
+      <a href="https://revolut.me/shanedzlt" target="_blank" class="btn revolut-btn">Settle Commission (€5)</a>
 
     </div>
 
   </div>
 
   <footer>
-    <p>&copy; 2026 PixelPerfect Edits. Fast turnaround times on all requests.</p>
+    <p>&copy; 2026 PixelPerfect Atelier. All rights reserved.</p>
   </footer>
 
 </body>
