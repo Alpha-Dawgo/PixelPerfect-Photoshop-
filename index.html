@@ -93,13 +93,6 @@
       text-align: center;
       padding-bottom: 20px;
       box-shadow: 0 10px 30px rgba(0,0,0,0.3);
-      transition: transform 0.3s ease, border-color 0.3s ease, box-shadow 0.3s ease;
-    }
-
-    .gallery-item:hover {
-      transform: translateY(-5px);
-      border-color: var(--accent-blue);
-      box-shadow: 0 15px 35px var(--accent-glow);
     }
 
     .gallery-item img {
@@ -117,15 +110,17 @@
       font-weight: 500;
     }
 
-    /* Order Form Box Styling */
+    /* Order Box Styling */
     .order-box {
       background: var(--card-bg);
       border: 1px solid var(--card-border);
       border-radius: 16px;
-      padding: 50px;
+      padding: 40px;
       box-shadow: 0 20px 50px rgba(0,0,0,0.4);
       position: relative;
       text-align: center;
+      max-width: 700px;
+      margin: 0 auto;
     }
 
     .order-box::before {
@@ -142,14 +137,39 @@
       font-size: 2.2rem;
       font-weight: 800;
       color: var(--accent-blue);
-      margin-bottom: 30px;
+      margin-bottom: 25px;
       text-shadow: 0 0 20px rgba(56, 189, 248, 0.3);
     }
 
+    .steps-list {
+      text-align: left;
+      background: #070b19;
+      border: 1px solid var(--card-border);
+      padding: 30px;
+      border-radius: 12px;
+      margin-bottom: 30px;
+    }
+
+    .steps-list h3 {
+      color: var(--accent-blue);
+      margin-top: 0;
+      margin-bottom: 20px;
+      text-align: center;
+      font-size: 1.4rem;
+    }
+
+    .step-item {
+      margin-bottom: 20px;
+      font-size: 1.05rem;
+    }
+
+    .step-item:last-child {
+      margin-bottom: 0;
+    }
+
     .btn {
-      display: inline-block;
+      display: block;
       width: 100%;
-      max-width: 400px;
       background: var(--accent-blue);
       color: #070b19;
       text-align: center;
@@ -162,7 +182,7 @@
       transition: opacity 0.2s, transform 0.2s, box-shadow 0.2s;
       box-shadow: 0 5px 20px rgba(56, 189, 248, 0.3);
       text-decoration: none;
-      margin: 10px 0;
+      margin-top: 10px;
     }
 
     .btn:hover {
@@ -171,55 +191,23 @@
       box-shadow: 0 8px 25px rgba(56, 189, 248, 0.5);
     }
 
+    .whatsapp-btn {
+      background: #25d366;
+      color: #ffffff;
+      margin-bottom: 15px;
+    }
+
+    .whatsapp-btn:hover {
+      background: #1ebe5d;
+    }
+
     .revolut-btn {
       background: #0075eb;
       color: #ffffff;
-      box-shadow: 0 5px 20px rgba(0, 117, 235, 0.3);
     }
 
     .revolut-btn:hover {
       background: #005bb5;
-      box-shadow: 0 8px 25px rgba(0, 117, 235, 0.5);
-    }
-
-    .steps-container {
-      margin-top: 30px;
-      display: grid;
-      gap: 20px;
-      text-align: left;
-    }
-
-    .step-card {
-      background: #070b19;
-      border: 1px solid var(--card-border);
-      padding: 25px;
-      border-radius: 10px;
-      text-align: center;
-    }
-
-    .step-card h3 {
-      color: var(--accent-blue);
-      margin-top: 0;
-      margin-bottom: 10px;
-    }
-
-    /* Notice Banner Styling */
-    .notice-banner {
-      background: rgba(56, 189, 248, 0.1);
-      border: 1px dashed var(--accent-blue);
-      border-radius: 10px;
-      padding: 15px 20px;
-      text-align: center;
-      margin: 20px 0;
-      box-shadow: 0 0 15px rgba(56, 189, 248, 0.15);
-    }
-
-    .notice-banner p {
-      margin: 0;
-      color: var(--accent-blue);
-      font-weight: 700;
-      font-size: 1rem;
-      letter-spacing: 0.3px;
     }
 
     footer {
@@ -238,59 +226,43 @@
   <header>
     <div class="badge">Professional Quality</div>
     <h1>Custom Photoshop Requests</h1>
-    <p>Upload your images, specify your changes, and get your professionally edited photo delivered straight to your inbox.</p>
+    <p>Get your professionally edited photo delivered straight to you in 3 simple steps via WhatsApp.</p>
   </header>
 
   <div class="container">
     
     <div class="section-title">Before & After <span>Work Gallery</span></div>
     <div class="gallery-grid">
-      
       <div class="gallery-item">
-        <img src="il_fullxfull.6944422414_nmpp.jpg" alt="Object Removal Example 1">
+        <img src="il_fullxfull.6944422414_nmpp.jpg" alt="Example 1">
         <p>Unwanted Person / Object Removal</p>
       </div>
-
       <div class="gallery-item">
-        <img src="il_fullxfull.7313634739_7sbe.jpg" alt="Object Removal Example 2">
+        <img src="il_fullxfull.7313634739_7sbe.jpg" alt="Example 2">
         <p>Background Cleanup & Retouching</p>
       </div>
-
       <div class="gallery-item">
-        <img src="cover.webp" alt="Object Removal Example 3">
+        <img src="cover.webp" alt="Example 3">
         <p>Professional Cleanup & Lighting</p>
       </div>
-
     </div>
 
     <div class="order-box">
-      <div class="section-title" style="margin-bottom: 15px;">Start Your Request</div>
+      <div class="section-title" style="margin-bottom: 10px;">How It Works</div>
       <div class="price-tag">Flat Rate: €5.00</div>
       
-      <p style="color: var(--text-muted); margin-bottom: 20px;">Complete the 3 easy steps below to get your photo edited:</p>
-
-      <div class="steps-container">
-        
-        <div class="step-card">
-          <h3>Step 1: Upload Photo & Instructions</h3>
-          <p style="color: var(--text-muted); font-size: 0.95rem; margin-bottom: 15px;">Click below to submit your photo and tell me what changes you want made.</p>
-          <a href="#" target="_blank" class="btn">Open Upload Form</a>
-        </div>
-
-        <div class="step-card">
-          <h3>Step 2: Note Delivery Timeline</h3>
-          <div class="notice-banner" style="margin: 0;">
-            <p>⚡ Once your payment is sent in Step 3, your edited order will be delivered to your email within 24 hours!</p>
-          </div>
-        </div>
-
-        <div class="step-card">
-          <h3>Step 3: Complete Payment</h3>
-          <p style="color: var(--text-muted); font-size: 0.95rem; margin-bottom: 15px;">Pay your €5 fee securely via Revolut to finalize your order.</p>
-          <a href="https://revolut.me/shanedzlt" target="_blank" class="btn revolut-btn">Pay €5 via Revolut</a>
-        </div>
-
+      <div class="steps-list">
+        <h3>3 Easy Steps</h3>
+        <div class="step-item"><strong>Step 1:</strong> Send your photo and instructions directly on WhatsApp.</div>
+        <hr style="border: 0; border-top: 1px solid rgba(56, 189, 248, 0.1); margin: 15px 0;">
+        <div class="step-item"><strong>Step 2:</strong> Delivery takes within <strong>24 hours</strong> of your payment.</div>
+        <hr style="border: 0; border-top: 1px solid rgba(56, 189, 248, 0.1); margin: 15px 0;">
+        <div class="step-item"><strong>Step 3:</strong> Pay your <strong>€5 fee</strong> securely via Revolut.</div>
       </div>
+
+      <a href="https://wa.me/YOUR_PHONE_NUMBER?text=Hi,%20here%20is%20my%20photo%20and%20instructions%20for%20editing:" target="_blank" class="btn whatsapp-btn">1. Send Photo via WhatsApp</a>
+      
+      <a href="https://revolut.me/shanedzlt" target="_blank" class="btn revolut-btn">3. Pay €5 via Revolut</a>
 
     </div>
 
@@ -302,3 +274,4 @@
 
 </body>
 </html>
+
