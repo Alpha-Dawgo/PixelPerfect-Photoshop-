@@ -153,7 +153,7 @@
       background: var(--accent-blue);
       color: #070b19;
       text-align: center;
-      padding: 18px 0;
+      padding: 16px 0;
       border: none;
       border-radius: 8px;
       font-weight: 800;
@@ -162,7 +162,7 @@
       transition: opacity 0.2s, transform 0.2s, box-shadow 0.2s;
       box-shadow: 0 5px 20px rgba(56, 189, 248, 0.3);
       text-decoration: none;
-      margin: 15px 0;
+      margin: 10px 0;
     }
 
     .btn:hover {
@@ -186,6 +186,7 @@
       margin-top: 30px;
       display: grid;
       gap: 20px;
+      text-align: left;
     }
 
     .step-card {
@@ -193,11 +194,32 @@
       border: 1px solid var(--card-border);
       padding: 25px;
       border-radius: 10px;
+      text-align: center;
     }
 
     .step-card h3 {
       color: var(--accent-blue);
       margin-top: 0;
+      margin-bottom: 10px;
+    }
+
+    /* Notice Banner Styling */
+    .notice-banner {
+      background: rgba(56, 189, 248, 0.1);
+      border: 1px dashed var(--accent-blue);
+      border-radius: 10px;
+      padding: 15px 20px;
+      text-align: center;
+      margin: 20px 0;
+      box-shadow: 0 0 15px rgba(56, 189, 248, 0.15);
+    }
+
+    .notice-banner p {
+      margin: 0;
+      color: var(--accent-blue);
+      font-weight: 700;
+      font-size: 1rem;
+      letter-spacing: 0.3px;
     }
 
     footer {
@@ -245,19 +267,26 @@
       <div class="section-title" style="margin-bottom: 15px;">Start Your Request</div>
       <div class="price-tag">Flat Rate: €5.00</div>
       
-      <p style="color: var(--text-muted); margin-bottom: 30px;">Follow the 2 simple steps below to submit your photo and complete your order:</p>
+      <p style="color: var(--text-muted); margin-bottom: 20px;">Complete the 3 easy steps below to get your photo edited:</p>
 
       <div class="steps-container">
         
         <div class="step-card">
           <h3>Step 1: Upload Photo & Instructions</h3>
-          <p style="color: var(--text-muted); font-size: 0.95rem; margin-bottom: 15px;">Click below to open the secure upload form, attach your photo, and write your editing instructions.</p>
-          <a href="YOUR_GOOGLE_FORM_LINK_HERE" target="_blank" class="btn">Open Upload Form</a>
+          <p style="color: var(--text-muted); font-size: 0.95rem; margin-bottom: 15px;">Click below to submit your photo and tell me what changes you want made.</p>
+          <a href="#" target="_blank" class="btn">Open Upload Form</a>
         </div>
 
         <div class="step-card">
-          <h3>Step 2: Complete Payment</h3>
-          <p style="color: var(--text-muted); font-size: 0.95rem; margin-bottom: 15px;">Pay your €5 fee securely via Revolut. Your edit will be emailed to you within 24 hours!</p>
+          <h3>Step 2: Note Delivery Timeline</h3>
+          <div class="notice-banner" style="margin: 0;">
+            <p>⚡ Once your payment is sent in Step 3, your edited order will be delivered to your email within 24 hours!</p>
+          </div>
+        </div>
+
+        <div class="step-card">
+          <h3>Step 3: Complete Payment</h3>
+          <p style="color: var(--text-muted); font-size: 0.95rem; margin-bottom: 15px;">Pay your €5 fee securely via Revolut to finalize your order.</p>
           <a href="https://revolut.me/shanedzlt" target="_blank" class="btn revolut-btn">Pay €5 via Revolut</a>
         </div>
 
