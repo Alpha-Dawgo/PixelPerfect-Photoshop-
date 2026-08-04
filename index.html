@@ -125,6 +125,7 @@
       padding: 50px;
       box-shadow: 0 20px 50px rgba(0,0,0,0.4);
       position: relative;
+      text-align: center;
     }
 
     .order-box::before {
@@ -141,49 +142,18 @@
       font-size: 2.2rem;
       font-weight: 800;
       color: var(--accent-blue);
-      text-align: center;
       margin-bottom: 30px;
       text-shadow: 0 0 20px rgba(56, 189, 248, 0.3);
     }
 
-    .form-group {
-      margin-bottom: 25px;
-    }
-
-    .form-group label {
-      display: block;
-      margin-bottom: 10px;
-      font-weight: 600;
-      font-size: 1rem;
-    }
-
-    .form-group input, 
-    .form-group textarea {
-      width: 100%;
-      padding: 14px;
-      background: #070b19;
-      border: 1px solid var(--card-border);
-      border-radius: 8px;
-      color: var(--text-main);
-      font-size: 1rem;
-      box-sizing: border-box;
-      transition: border-color 0.2s, box-shadow 0.2s;
-    }
-
-    .form-group input:focus, 
-    .form-group textarea:focus {
-      outline: none;
-      border-color: var(--accent-blue);
-      box-shadow: 0 0 10px rgba(56, 189, 248, 0.2);
-    }
-
     .btn {
-      display: block;
+      display: inline-block;
       width: 100%;
+      max-width: 400px;
       background: var(--accent-blue);
       color: #070b19;
       text-align: center;
-      padding: 16px 0;
+      padding: 18px 0;
       border: none;
       border-radius: 8px;
       font-weight: 800;
@@ -192,7 +162,7 @@
       transition: opacity 0.2s, transform 0.2s, box-shadow 0.2s;
       box-shadow: 0 5px 20px rgba(56, 189, 248, 0.3);
       text-decoration: none;
-      margin-top: 10px;
+      margin: 15px 0;
     }
 
     .btn:hover {
@@ -201,41 +171,33 @@
       box-shadow: 0 8px 25px rgba(56, 189, 248, 0.5);
     }
 
-    .email-btn {
-      background: #10b981;
-      color: #ffffff;
-    }
-
-    .email-btn:hover {
-      background: #059669;
-    }
-
     .revolut-btn {
       background: #0075eb;
       color: #ffffff;
+      box-shadow: 0 5px 20px rgba(0, 117, 235, 0.3);
     }
 
     .revolut-btn:hover {
       background: #005bb5;
+      box-shadow: 0 8px 25px rgba(0, 117, 235, 0.5);
     }
 
-    /* Notice Banner Styling */
-    .notice-banner {
-      background: rgba(56, 189, 248, 0.1);
-      border: 1px dashed var(--accent-blue);
+    .steps-container {
+      margin-top: 30px;
+      display: grid;
+      gap: 20px;
+    }
+
+    .step-card {
+      background: #070b19;
+      border: 1px solid var(--card-border);
+      padding: 25px;
       border-radius: 10px;
-      padding: 15px 20px;
-      text-align: center;
-      margin: 25px 0;
-      box-shadow: 0 0 15px rgba(56, 189, 248, 0.15);
     }
 
-    .notice-banner p {
-      margin: 0;
+    .step-card h3 {
       color: var(--accent-blue);
-      font-weight: 700;
-      font-size: 1rem;
-      letter-spacing: 0.3px;
+      margin-top: 0;
     }
 
     footer {
@@ -254,7 +216,7 @@
   <header>
     <div class="badge">Professional Quality</div>
     <h1>Custom Photoshop Requests</h1>
-    <p>Send me your images, specify your changes, and get your professionally edited photo delivered straight to your inbox.</p>
+    <p>Upload your images, specify your changes, and get your professionally edited photo delivered straight to your inbox.</p>
   </header>
 
   <div class="container">
@@ -280,44 +242,26 @@
     </div>
 
     <div class="order-box">
-      <div class="section-title" style="margin-bottom: 15px;">Submit Your Request</div>
+      <div class="section-title" style="margin-bottom: 15px;">Start Your Request</div>
       <div class="price-tag">Flat Rate: €5.00</div>
       
-      <form action="https://formsubmit.co/shanedunster@hotmail.com" method="POST">
+      <p style="color: var(--text-muted); margin-bottom: 30px;">Follow the 2 simple steps below to submit your photo and complete your order:</p>
+
+      <div class="steps-container">
         
-        <input type="hidden" name="_subject" value="New Photoshop Request Instructions">
-        <input type="hidden" name="_template" value="table">
-        
-        <div class="form-group">
-          <label for="email">Your Email Address (where I'll send the finished photo):</label>
-          <input type="email" id="email" name="email" required placeholder="name@example.com">
+        <div class="step-card">
+          <h3>Step 1: Upload Photo & Instructions</h3>
+          <p style="color: var(--text-muted); font-size: 0.95rem; margin-bottom: 15px;">Click below to open the secure upload form, attach your photo, and write your editing instructions.</p>
+          <a href="YOUR_GOOGLE_FORM_LINK_HERE" target="_blank" class="btn">Open Upload Form</a>
         </div>
 
-        <div class="form-group">
-          <label for="instructions">Editing Instructions / Details:</label>
-          <textarea id="instructions" name="instructions" rows="4" required placeholder="Describe what you want changed (e.g., remove background, fix lighting, smooth skin)..."></textarea>
-        </div>
-
-        <div style="text-align: center; margin-bottom: 20px;">
-          <p style="color: var(--text-muted); font-size: 0.95rem; margin-bottom: 10px;">Step 1: Submit your editing instructions</p>
-          <button type="submit" class="btn">Submit Instructions</button>
-        </div>
-
-      </form>
-
-        <div style="text-align: center; margin-bottom: 25px;">
-          <p style="color: var(--text-muted); font-size: 0.95rem; margin-bottom: 10px;">Step 2: Email your photo(s) directly to me</p>
-          <a href="mailto:shanedunster@hotmail.com?subject=My%20Photoshop%20Photo&body=Hi,%20here%20is%20my%20photo%20for%20editing!" class="btn email-btn">Email Photo to shanedunster@hotmail.com</a>
-        </div>
-
-        <div class="notice-banner">
-          <p>⚡ Once payment is sent, your edited order will be delivered to your email within 24 hours!</p>
-        </div>
-
-        <div style="text-align: center;">
-          <p style="color: var(--text-muted); font-size: 0.95rem; margin-bottom: 10px;">Step 3: Pay your €5 fee securely via Revolut</p>
+        <div class="step-card">
+          <h3>Step 2: Complete Payment</h3>
+          <p style="color: var(--text-muted); font-size: 0.95rem; margin-bottom: 15px;">Pay your €5 fee securely via Revolut. Your edit will be emailed to you within 24 hours!</p>
           <a href="https://revolut.me/shanedzlt" target="_blank" class="btn revolut-btn">Pay €5 via Revolut</a>
         </div>
+
+      </div>
 
     </div>
 
