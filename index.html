@@ -106,6 +106,7 @@
       -webkit-text-fill-color: transparent;
     }
 
+    /* Showcase Grid */
     .showcase-grid {
       display: grid;
       grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
@@ -129,104 +130,18 @@
       transform: translateY(-4px);
     }
 
-    .ba-slider {
-      position: relative;
+    .showcase-card img {
       width: 100%;
-      min-height: 280px;
-      aspect-ratio: 4 / 3;
-      overflow: hidden;
-      user-select: none;
-      border-bottom: 1px solid var(--border-gradient);
-      cursor: ew-resize;
-      background: #12141c;
-    }
-
-    .ba-slider img {
-      position: absolute;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 100%;
+      height: 220px;
       object-fit: cover;
-      pointer-events: none;
+      border-bottom: 1px solid var(--border-gradient);
+      transition: transform 0.5s ease;
+      cursor: pointer;
     }
 
-    .ba-slider .before-img {
-      z-index: 1;
+    .showcase-card:hover img {
+      transform: scale(1.04);
     }
-
-    .ba-slider .after-img {
-      z-index: 2;
-      width: 100%;
-      height: 100%;
-      position: absolute;
-      top: 0;
-      left: 0;
-      clip-path: polygon(0 0, 50% 0, 50% 100%, 0 100%);
-      transition: none;
-    }
-
-    #slider1 .after-img {
-      filter: brightness(1.15) contrast(1.08) saturate(1.25);
-    }
-
-    #slider3 .before-img {
-      filter: saturate(1.7) contrast(1.25) brightness(1.12);
-    }
-
-    #slider3 .after-img {
-      filter: saturate(0.3) brightness(0.85) contrast(0.85);
-    }
-
-    .ba-slider .slider-handle {
-      position: absolute;
-      top: 0;
-      bottom: 0;
-      left: 50%;
-      width: 3px;
-      background: #ffffff;
-      z-index: 3;
-      box-shadow: 0 0 10px rgba(0,0,0,0.5);
-      pointer-events: none;
-      transform: translateX(-50%);
-    }
-
-    .ba-slider .slider-handle::after {
-      content: '↔';
-      position: absolute;
-      top: 50%;
-      left: 50%;
-      transform: translate(-50%, -50%);
-      background: linear-gradient(135deg, #ec4899, #8b5cf6);
-      color: white;
-      width: 32px;
-      height: 32px;
-      border-radius: 50%;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      font-size: 0.9rem;
-      box-shadow: 0 4px 10px rgba(0,0,0,0.3);
-      border: 2px solid #ffffff;
-    }
-
-    .ba-label {
-      position: absolute;
-      bottom: 10px;
-      padding: 3px 8px;
-      background: rgba(0, 0, 0, 0.6);
-      color: #ffffff;
-      font-size: 0.65rem;
-      text-transform: uppercase;
-      letter-spacing: 1px;
-      border-radius: 4px;
-      z-index: 4;
-      pointer-events: none;
-      font-weight: 700;
-    }
-
-    .ba-label.before-lbl { left: 10px; }
-    .ba-label.after-lbl { right: 10px; }
 
     .showcase-content {
       padding: 25px 20px;
@@ -246,85 +161,7 @@
       line-height: 1.6;
     }
 
-    .upload-section {
-      background: var(--bg-card);
-      border: 1px solid var(--border-gradient);
-      border-radius: 24px;
-      padding: 40px;
-      margin-bottom: 90px;
-      backdrop-filter: blur(20px);
-      box-shadow: 0 20px 40px rgba(0,0,0,0.3);
-    }
-
-    .upload-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
-      gap: 25px;
-      margin-bottom: 25px;
-    }
-
-    .upload-box {
-      background: rgba(12, 14, 20, 0.7);
-      border: 2px dashed var(--border-gradient);
-      border-radius: 16px;
-      padding: 30px 20px;
-      text-align: center;
-      cursor: pointer;
-      position: relative;
-      transition: all 0.3s ease;
-      min-height: 180px;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      justify-content: center;
-    }
-
-    .upload-box:hover {
-      border-color: var(--accent-pink);
-      background: rgba(236, 72, 153, 0.03);
-    }
-
-    .upload-box input[type="file"] {
-      position: absolute;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 100%;
-      opacity: 0;
-      cursor: pointer;
-    }
-
-    .upload-box img {
-      max-width: 100%;
-      max-height: 140px;
-      border-radius: 8px;
-      object-fit: cover;
-      display: none;
-    }
-
-    .upload-box .upload-placeholder {
-      pointer-events: none;
-    }
-
-    .upload-box .upload-placeholder span {
-      display: block;
-      font-size: 1.5rem;
-      margin-bottom: 8px;
-      color: #f472b6;
-    }
-
-    .upload-box h4 {
-      font-size: 1rem;
-      margin: 0 0 5px 0;
-      font-weight: 700;
-    }
-
-    .upload-box p {
-      font-size: 0.8rem;
-      color: var(--text-muted);
-      margin: 0;
-    }
-
+    /* Instructions Section */
     .instructions-card {
       background: var(--bg-card);
       border: 1px solid var(--border-gradient);
@@ -389,6 +226,7 @@
       font-weight: 600;
     }
 
+    /* Pricing Tiers Section (1, 2, or 3 Photos) */
     .pricing-grid {
       display: grid;
       grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
@@ -459,6 +297,7 @@
       margin: 0;
     }
 
+    /* Testimonials */
     .testimonials-grid {
       display: grid;
       grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
@@ -498,6 +337,7 @@
       text-transform: uppercase;
     }
 
+    /* Trust Badges */
     .trust-badges {
       display: grid;
       grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
@@ -539,6 +379,7 @@
       margin: 0;
     }
 
+    /* Order Box */
     .order-box {
       background: var(--bg-card);
       border: 1px solid var(--border-gradient);
@@ -644,6 +485,7 @@
       box-shadow: 0 15px 35px rgba(236, 72, 153, 0.5);
     }
 
+    /* Popup Modal for Payment */
     .payment-modal {
       display: none;
       position: fixed;
@@ -717,6 +559,7 @@
       color: var(--text-main);
     }
 
+    /* FAQ Section */
     .faq-container {
       max-width: 750px;
       margin: 0 auto 90px auto;
@@ -768,6 +611,7 @@
       display: block;
     }
 
+    /* Live Badge */
     .online-badge {
       position: fixed;
       top: 20px;
@@ -803,6 +647,7 @@
       100% { transform: scale(0.95); opacity: 0.8; }
     }
 
+    /* Floating WhatsApp Button */
     .floating-whatsapp {
       position: fixed;
       bottom: 25px;
@@ -824,6 +669,50 @@
 
     .floating-whatsapp:hover {
       transform: scale(1.08);
+    }
+
+    /* Lightbox Modal */
+    .lightbox-modal {
+      display: none;
+      position: fixed;
+      z-index: 4000;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: rgba(10, 11, 14, 0.92);
+      backdrop-filter: blur(15px);
+      align-items: center;
+      justify-content: center;
+      padding: 20px;
+    }
+
+    .lightbox-modal.active {
+      display: flex;
+    }
+
+    .lightbox-content {
+      max-width: 90%;
+      max-height: 85vh;
+      border: 1px solid var(--border-gradient);
+      border-radius: 20px;
+      box-shadow: 0 30px 80px rgba(0,0,0,0.8);
+      object-fit: contain;
+    }
+
+    .lightbox-close {
+      position: absolute;
+      top: 25px;
+      right: 30px;
+      color: var(--text-main);
+      font-size: 2.2rem;
+      cursor: pointer;
+      font-weight: 300;
+      transition: color 0.3s ease;
+    }
+
+    .lightbox-close:hover {
+      color: #f472b6;
     }
 
     footer {
@@ -853,4 +742,268 @@
   <div class="container">
     
     <div class="section-title">What Photoshop <span>Can Do</span></div>
-    <div class="showcas
+    <div class="showcase-grid">
+      <div class="showcase-card">
+        <img src="https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&w=600&q=80" alt="Skin & Detail Refinement" class="lightbox-trigger">
+        <div class="showcase-content">
+          <h3>Skin & Detail Refinement</h3>
+          <p>Natural blemish correction, professional skin smoothing, and lighting balance tailored for portraits.</p>
+        </div>
+      </div>
+      <div class="showcase-card">
+        <img src="https://images.unsplash.com/photo-1542291026-7eec264c27ff?auto=format&fit=crop&w=600&q=80" alt="Object Removal Before and After" class="lightbox-trigger">
+        <div class="showcase-content">
+          <h3>Object Removal</h3>
+          <p>Clean up cluttered backgrounds, unwanted distractions, photobombers, and blemishes seamlessly.</p>
+        </div>
+      </div>
+      <div class="showcase-card">
+        <img src="https://images.unsplash.com/photo-1492691527719-9d1e07e534b4?auto=format&fit=crop&w=600&q=80" alt="Color Grading & Aesthetic" class="lightbox-trigger">
+        <div class="showcase-content">
+          <h3>Color Grading & Aesthetic</h3>
+          <p>Consistent Instagram presets, rich tones, and vibrant contrast to make your feed cohesive and aesthetic.</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="section-title">Transparent <span>Pricing Plans</span></div>
+    <div class="pricing-grid">
+      <div class="pricing-card" onclick="selectPackage(1, 5.00)">
+        <h4>1 Photo</h4>
+        <div class="price">€5.00</div>
+        <p>1 hour turnaround</p>
+      </div>
+      <div class="pricing-card popular" onclick="selectPackage(2, 7.50)">
+        <div class="popular-tag">Most Popular</div>
+        <h4>2 Photos</h4>
+        <div class="price">€7.50</div>
+        <p>Perfect for a quick duo update</p>
+      </div>
+      <div class="pricing-card" onclick="selectPackage(3, 10.00)">
+        <h4>3 Photos</h4>
+        <div class="price">€10.00</div>
+        <p>Full mini-batch bundle</p>
+      </div>
+    </div>
+
+    <div class="section-title">Creator <span>Testimonials</span></div>
+    <div class="testimonials-grid">
+      <div class="testimonial-card">
+        <p>"Incredible turnaround speed. My Instagram grid has never looked so cohesive and aesthetic!"</p>
+        <h4>— Jackie O'Brien</h4>
+      </div>
+      <div class="testimonial-card">
+        <p>"Sent my request via WhatsApp and had the final master file back within hours. Total game-changer."</p>
+        <h4>— David K.</h4>
+      </div>
+      <div class="testimonial-card">
+        <p>"An absolute masterclass in digital enhancement. My profile looks like a high-fashion magazine."</p>
+        <h4>— Siobhán Ní Cheallaigh</h4>
+      </div>
+      <div class="testimonial-card">
+        <p>"The level of detail and precision is unmatched. Communication over WhatsApp was effortless and fast."</p>
+        <h4>— Cillian Byrne</h4>
+      </div>
+    </div>
+
+    <div class="trust-badges">
+      <div class="trust-badge-item">
+        <div class="icon">⚡</div>
+        <h5>1-Hour Delivery</h5>
+        <p>Fast turnaround straight to your chat</p>
+      </div>
+      <div class="trust-badge-item">
+        <div class="icon">💎</div>
+        <h5>Pristine Quality</h5>
+        <p>Handcrafted professional detailing</p>
+      </div>
+      <div class="trust-badge-item">
+        <div class="icon">🔒</div>
+        <h5>Secure Payment</h5>
+        <p>Trusted handling via Revolut</p>
+      </div>
+    </div>
+
+    <div class="instructions-card">
+      <h3>How It Works</h3>
+      <div class="instructions-list">
+        <div class="instruction-step">
+          <div class="step-num">1</div>
+          <h4>Describe & Submit</h4>
+          <p>Fill out the form below with your edit description and package choice, then click send to open WhatsApp and send your details.</p>
+        </div>
+        <div class="instruction-step">
+          <div class="step-num">2</div>
+          <h4>Send Your Photos</h4>
+          <p>Attach your photos directly inside the open WhatsApp chat so we can begin working on them.</p>
+        </div>
+        <div class="instruction-step">
+          <div class="step-num">3</div>
+          <h4>Complete Payment</h4>
+          <p><span class="highlight-return">Go to this browser tab to complete your payment</span> via Revolut to kick off your 1-hour turnaround countdown!</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="order-box">
+      <div class="section-title" style="margin-bottom: 15px; font-size: 2rem;">Quick <span>Commission</span></div>
+      <div class="dynamic-price-tag" id="displayPrice">€5.00</div>
+      
+      <div class="commission-form">
+        <div class="form-group">
+          <label for="photoCount">Select Package:</label>
+          <select id="photoCount" onchange="updatePricing()">
+            <option value="1">1 Photo (€5.00)</option>
+            <option value="2">2 Photos (€7.50)</option>
+            <option value="3">3 Photos (€10.00)</option>
+          </select>
+        </div>
+        <div class="form-group">
+          <label for="clientDetails">Describe your edit requirements:</label>
+          <textarea id="clientDetails" rows="4" placeholder="e.g. Remove background distractions, smoothen skin naturally, enhance contrast..."></textarea>
+        </div>
+        <button type="button" id="sendWhatsAppBtn" class="btn whatsapp-btn">Send Details & Pay</button>
+      </div>
+    </div>
+
+    <div class="section-title">Frequently Asked <span>Questions</span></div>
+    <div class="faq-container">
+      <div class="faq-item">
+        <div class="faq-question">How do I send my photos? <span>+</span></div>
+        <div class="faq-answer">Type what you want above and click the button to send it via WhatsApp. You can then attach your photos right inside the chat! Remember to switch back to this browser tab to complete your payment.</div>
+      </div>
+      <div class="faq-item">
+        <div class="faq-question">What is the delivery time? <span>+</span></div>
+        <div class="faq-answer">All commissions are completed and delivered straight to your WhatsApp within 1 hour after payment is received.</div>
+      </div>
+      <div class="faq-item">
+        <div class="faq-question">How does payment work? <span>+</span></div>
+        <div class="faq-answer">After sending your WhatsApp message, switch to this browser tab to complete your secure payment via Revolut.</div>
+      </div>
+    </div>
+
+  </div>
+
+  <div class="payment-modal" id="paymentModal">
+    <div class="payment-box">
+      <h3>Complete Your Payment</h3>
+      <p id="modalPaymentText">Your message has been initiated on WhatsApp! Please go to this tab and complete your secure payment via Revolut to begin the 1-hour countdown.</p>
+      <a href="https://revolut.me/shanedzlt" target="_blank" class="btn revolut-popup-btn" id="payNowBtn">Pay via Revolut</a>
+      <button type="button" class="btn close-popup-btn" id="closeModalBtn">Close Window</button>
+    </div>
+  </div>
+
+  <div class="lightbox-modal" id="lightboxModal">
+    <span class="lightbox-close" id="lightboxClose">&times;</span>
+    <img class="lightbox-content" id="lightboxImg" alt="Enlarged Showcase View">
+  </div>
+
+  <a href="https://wa.me/353833753751?text=Hi,%20I%20would%20like%20to%20commission%20a%20photo%20edit:" target="_blank" class="floating-whatsapp" title="Chat on WhatsApp">✦</a>
+
+  <footer>
+    <p>&copy; 2026 PixelPerfect Retouch. All rights reserved.</p>
+  </footer>
+
+  <script>
+    // Pricing calculation logic for 1, 2, or 3 photos
+    function calculatePrice(count) {
+      if (count === 2) return 7.50;
+      if (count === 3) return 10.00;
+      return 5.00; // Default for 1 photo
+    }
+
+    const photoCountSelect = document.getElementById('photoCount');
+    const displayPrice = document.getElementById('displayPrice');
+    const sendWhatsAppBtn = document.getElementById('sendWhatsAppBtn');
+    const clientDetails = document.getElementById('clientDetails');
+    const paymentModal = document.getElementById('paymentModal');
+    const closeModalBtn = document.getElementById('closeModalBtn');
+    const payNowBtn = document.getElementById('payNowBtn');
+    const modalPaymentText = document.getElementById('modalPaymentText');
+
+    function updatePricing() {
+      const count = parseInt(photoCountSelect.value);
+      const price = calculatePrice(count);
+      displayPrice.textContent = '€' + price.toFixed(2);
+      sendWhatsAppBtn.textContent = `Send Details & Pay (€${price.toFixed(2)})`;
+    }
+
+    function selectPackage(count, presetPrice) {
+      photoCountSelect.value = count;
+      updatePricing();
+      document.querySelector('.order-box').scrollIntoView({ behavior: 'smooth' });
+    }
+
+    sendWhatsAppBtn.addEventListener('click', () => {
+      const count = photoCountSelect.value;
+      const price = calculatePrice(parseInt(count)).toFixed(2);
+      const userText = clientDetails.value.trim();
+      const defaultText = `Hi, I would like to commission a photo edit for ${count} photo(s) (€${price}): Request received!`;
+      const finalMessage = userText ? `${defaultText} ${userText}` : defaultText;
+      
+      const whatsappUrl = `https://wa.me/353833753751?text=${encodeURIComponent(finalMessage)}`;
+      
+      // Opens WhatsApp in a new tab, keeping your website open underneath
+      window.open(whatsappUrl, '_blank');
+
+      modalPaymentText.innerHTML = `Your message for ${count} photo(s) has been initiated on WhatsApp! Please switch to this tab and complete your secure <strong>€${price}</strong> payment via Revolut to begin the 1-hour countdown.`;
+      payNowBtn.textContent = `Pay €${price} via Revolut`;
+
+      setTimeout(() => {
+        paymentModal.classList.add('active');
+      }, 600);
+    });
+
+    closeModalBtn.addEventListener('click', () => {
+      paymentModal.classList.remove('active');
+    });
+
+    payNowBtn.addEventListener('click', () => {
+      paymentModal.classList.remove('active');
+    });
+
+    paymentModal.addEventListener('click', (e) => {
+      if (e.target === paymentModal) {
+        paymentModal.classList.remove('active');
+      }
+    });
+
+    // Lightbox Zoom Logic
+    const lightboxModal = document.getElementById('lightboxModal');
+    const lightboxImg = document.getElementById('lightboxImg');
+    const lightboxClose = document.getElementById('lightboxClose');
+    const lightboxTriggers = document.querySelectorAll('.lightbox-trigger');
+
+    lightboxTriggers.forEach(img => {
+      img.addEventListener('click', () => {
+        lightboxModal.classList.add('active');
+        lightboxImg.src = img.src;
+      });
+    });
+
+    lightboxClose.addEventListener('click', () => {
+      lightboxModal.classList.remove('active');
+    });
+
+    lightboxModal.addEventListener('click', (e) => {
+      if (e.target === lightboxModal) {
+        lightboxModal.classList.remove('active');
+      }
+    });
+
+    // FAQ Accordion Logic
+    const faqItems = document.querySelectorAll('.faq-item');
+    faqItems.forEach(item => {
+      const question = item.querySelector('.faq-question');
+      question.addEventListener('click', () => {
+        const isActive = item.classList.contains('active');
+        faqItems.forEach(i => i.classList.remove('active'));
+        if (!isActive) {
+          item.classList.add('active');
+        }
+      });
+    });
+  </script>
+
+</body>
+</html>
