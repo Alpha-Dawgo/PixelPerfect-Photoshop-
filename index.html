@@ -741,27 +741,6 @@
 
   <div class="container">
     
-    <div class="instructions-card">
-      <h3>How It Works</h3>
-      <div class="instructions-list">
-        <div class="instruction-step">
-          <div class="step-num">1</div>
-          <h4>Describe & Submit</h4>
-          <p>Fill out the form below with your edit description and package choice, then click send to open WhatsApp and send your details.</p>
-        </div>
-        <div class="instruction-step">
-          <div class="step-num">2</div>
-          <h4>Send Your Photos</h4>
-          <p>Attach your photos directly inside the open WhatsApp chat so we can begin working on them.</p>
-        </div>
-        <div class="instruction-step">
-          <div class="step-num">3</div>
-          <h4>Complete Payment</h4>
-          <p><span class="highlight-return">Return to this browser tab to complete your payment</span> via Revolut to kick off your 1-hour turnaround countdown!</p>
-        </div>
-      </div>
-    </div>
-
     <div class="section-title">What Photoshop <span>Can Do</span></div>
     <div class="showcase-grid">
       <div class="showcase-card">
@@ -787,223 +766,28 @@
       </div>
     </div>
 
+    <div class="instructions-card">
+      <h3>How It Works</h3>
+      <div class="instructions-list">
+        <div class="instruction-step">
+          <div class="step-num">1</div>
+          <h4>Describe & Submit</h4>
+          <p>Fill out the form below with your edit description and package choice, then click send to open WhatsApp and send your details.</p>
+        </div>
+        <div class="instruction-step">
+          <div class="step-num">2</div>
+          <h4>Send Your Photos</h4>
+          <p>Attach your photos directly inside the open WhatsApp chat so we can begin working on them.</p>
+        </div>
+        <div class="instruction-step">
+          <div class="step-num">3</div>
+          <h4>Complete Payment</h4>
+          <p><span class="highlight-return">Return to this browser tab to complete your payment</span> via Revolut to kick off your 1-hour turnaround countdown!</p>
+        </div>
+      </div>
+    </div>
+
     <div class="section-title">Transparent <span>Pricing Plans</span></div>
     <div class="pricing-grid">
       <div class="pricing-card" onclick="selectPackage(1, 5.00)">
-        <h4>1 Photo</h4>
-        <div class="price">€5.00</div>
-        <p>1 hour turnaround</p>
-      </div>
-      <div class="pricing-card popular" onclick="selectPackage(5, 15.00)">
-        <div class="popular-tag">Most Popular</div>
-        <h4>5 Photos</h4>
-        <div class="price">€15.00</div>
-        <p>Perfect for a mini feed refresh</p>
-      </div>
-      <div class="pricing-card" onclick="selectPackage(10, 20.00)">
-        <h4>10 Photos</h4>
-        <div class="price">€20.00</div>
-        <p>Full creator batch bundle</p>
-      </div>
-    </div>
-
-    <div class="section-title">Creator <span>Testimonials</span></div>
-    <div class="testimonials-grid">
-      <div class="testimonial-card">
-        <p>"Incredible turnaround speed. My Instagram grid has never looked so cohesive and aesthetic!"</p>
-        <h4>— Jackie O'Brien</h4>
-      </div>
-      <div class="testimonial-card">
-        <p>"Sent my request via WhatsApp and had the final master file back within hours. Total game-changer."</p>
-        <h4>— David K.</h4>
-      </div>
-      <div class="testimonial-card">
-        <p>"An absolute masterclass in digital enhancement. My profile looks like a high-fashion magazine."</p>
-        <h4>— Siobhán Ní Cheallaigh</h4>
-      </div>
-      <div class="testimonial-card">
-        <p>"The level of detail and precision is unmatched. Communication over WhatsApp was effortless and fast."</p>
-        <h4>— Cillian Byrne</h4>
-      </div>
-    </div>
-
-    <div class="trust-badges">
-      <div class="trust-badge-item">
-        <div class="icon">⚡</div>
-        <h5>1-Hour Delivery</h5>
-        <p>Fast turnaround straight to your chat</p>
-      </div>
-      <div class="trust-badge-item">
-        <div class="icon">💎</div>
-        <h5>Pristine Quality</h5>
-        <p>Handcrafted professional detailing</p>
-      </div>
-      <div class="trust-badge-item">
-        <div class="icon">🔒</div>
-        <h5>Secure Payment</h5>
-        <p>Trusted handling via Revolut</p>
-      </div>
-    </div>
-
-    <div class="order-box">
-      <div class="section-title" style="margin-bottom: 15px; font-size: 2rem;">Quick <span>Commission</span></div>
-      <div class="dynamic-price-tag" id="displayPrice">€5.00</div>
-      
-      <div class="commission-form">
-        <div class="form-group">
-          <label for="photoCount">Select Package:</label>
-          <select id="photoCount" onchange="updatePricing()">
-            <option value="1">1 Photo (€5.00)</option>
-            <option value="5">5 Photos (€15.00)</option>
-            <option value="10">10 Photos (€20.00)</option>
-          </select>
-        </div>
-        <div class="form-group">
-          <label for="clientDetails">Describe your edit requirements:</label>
-          <textarea id="clientDetails" rows="4" placeholder="e.g. Remove background distractions, smoothen skin naturally, enhance contrast..."></textarea>
-        </div>
-        <button type="button" id="sendWhatsAppBtn" class="btn whatsapp-btn">Send Details & Pay</button>
-      </div>
-    </div>
-
-    <div class="section-title">Frequently Asked <span>Questions</span></div>
-    <div class="faq-container">
-      <div class="faq-item">
-        <div class="faq-question">How do I send my photos? <span>+</span></div>
-        <div class="faq-answer">Type what you want above and click the button to send it via WhatsApp. You can then attach your photos right inside the chat! Remember to return to this browser tab to complete your payment.</div>
-      </div>
-      <div class="faq-item">
-        <div class="faq-question">What is the delivery time? <span>+</span></div>
-        <div class="faq-answer">All commissions are completed and delivered straight to your WhatsApp within 1 hour after payment is received.</div>
-      </div>
-      <div class="faq-item">
-        <div class="faq-question">How does payment work? <span>+</span></div>
-        <div class="faq-answer">After sending your WhatsApp message, return to this browser tab to complete your secure payment via Revolut.</div>
-      </div>
-    </div>
-
-  </div>
-
-  <div class="payment-modal" id="paymentModal">
-    <div class="payment-box">
-      <h3>Complete Your Payment</h3>
-      <p id="modalPaymentText">Your message has been initiated on WhatsApp! Please return to this tab and complete your secure payment via Revolut to begin the 1-hour countdown.</p>
-      <a href="https://revolut.me/shanedzlt" target="_blank" class="btn revolut-popup-btn" id="payNowBtn">Pay via Revolut</a>
-      <button type="button" class="btn close-popup-btn" id="closeModalBtn">Close Window</button>
-    </div>
-  </div>
-
-  <div class="lightbox-modal" id="lightboxModal">
-    <span class="lightbox-close" id="lightboxClose">&times;</span>
-    <img class="lightbox-content" id="lightboxImg" alt="Enlarged Showcase View">
-  </div>
-
-  <a href="https://wa.me/353833753751?text=Hi,%20I%20would%20like%20to%20commission%20a%20photo%20edit:" target="_blank" class="floating-whatsapp" title="Chat on WhatsApp">✦</a>
-
-  <footer>
-    <p>&copy; 2026 PixelPerfect Retouch. All rights reserved.</p>
-  </footer>
-
-  <script>
-    // Pricing calculation logic for 1, 5, or 10 photos
-    function calculatePrice(count) {
-      if (count === 5) return 15.00;
-      if (count === 10) return 20.00;
-      return 5.00; // Default for 1 photo
-    }
-
-    const photoCountSelect = document.getElementById('photoCount');
-    const displayPrice = document.getElementById('displayPrice');
-    const sendWhatsAppBtn = document.getElementById('sendWhatsAppBtn');
-    const clientDetails = document.getElementById('clientDetails');
-    const paymentModal = document.getElementById('paymentModal');
-    const closeModalBtn = document.getElementById('closeModalBtn');
-    const payNowBtn = document.getElementById('payNowBtn');
-    const modalPaymentText = document.getElementById('modalPaymentText');
-
-    function updatePricing() {
-      const count = parseInt(photoCountSelect.value);
-      const price = calculatePrice(count);
-      displayPrice.textContent = '€' + price.toFixed(2);
-      sendWhatsAppBtn.textContent = `Send Details & Pay (€${price.toFixed(2)})`;
-    }
-
-    function selectPackage(count, presetPrice) {
-      photoCountSelect.value = count;
-      updatePricing();
-      document.querySelector('.order-box').scrollIntoView({ behavior: 'smooth' });
-    }
-
-    sendWhatsAppBtn.addEventListener('click', () => {
-      const count = photoCountSelect.value;
-      const price = calculatePrice(parseInt(count)).toFixed(2);
-      const userText = clientDetails.value.trim();
-      const defaultText = `Hi, I would like to commission a photo edit for ${count} photo(s) (€${price}): Request received! Please return to the site to pay.`;
-      const finalMessage = userText ? `${defaultText} ${userText}` : defaultText;
-      
-      const whatsappUrl = `https://wa.me/353833753751?text=${encodeURIComponent(finalMessage)}`;
-      
-      // Opens WhatsApp in a new tab, keeping your website open underneath
-      window.open(whatsappUrl, '_blank');
-
-      modalPaymentText.innerHTML = `Your message for ${count} photo(s) has been initiated on WhatsApp! Please return to this tab and complete your secure <strong>€${price}</strong> payment via Revolut to begin the 1-hour countdown.`;
-      payNowBtn.textContent = `Pay €${price} via Revolut`;
-
-      setTimeout(() => {
-        paymentModal.classList.add('active');
-      }, 600);
-    });
-
-    closeModalBtn.addEventListener('click', () => {
-      paymentModal.classList.remove('active');
-    });
-
-    payNowBtn.addEventListener('click', () => {
-      paymentModal.classList.remove('active');
-    });
-
-    paymentModal.addEventListener('click', (e) => {
-      if (e.target === paymentModal) {
-        paymentModal.classList.remove('active');
-      }
-    });
-
-    // Lightbox Zoom Logic
-    const lightboxModal = document.getElementById('lightboxModal');
-    const lightboxImg = document.getElementById('lightboxImg');
-    const lightboxClose = document.getElementById('lightboxClose');
-    const lightboxTriggers = document.querySelectorAll('.lightbox-trigger');
-
-    lightboxTriggers.forEach(img => {
-      img.addEventListener('click', () => {
-        lightboxModal.classList.add('active');
-        lightboxImg.src = img.src;
-      });
-    });
-
-    lightboxClose.addEventListener('click', () => {
-      lightboxModal.classList.remove('active');
-    });
-
-    lightboxModal.addEventListener('click', (e) => {
-      if (e.target === lightboxModal) {
-        lightboxModal.classList.remove('active');
-      }
-    });
-
-    // FAQ Accordion Logic
-    const faqItems = document.querySelectorAll('.faq-item');
-    faqItems.forEach(item => {
-      const question = item.querySelector('.faq-question');
-      question.addEventListener('click', () => {
-        const isActive = item.classList.contains('active');
-        faqItems.forEach(i => i.classList.remove('active'));
-        if (!isActive) {
-          item.classList.add('active');
-        }
-      });
-    });
-  </script>
-
-</body>
-</html>
+        <h
