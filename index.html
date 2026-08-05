@@ -226,7 +226,7 @@
       font-weight: 600;
     }
 
-    /* Pricing Tiers Section (1, 2, or 3 Photos) */
+    /* Pricing Tiers Section */
     .pricing-grid {
       display: grid;
       grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
@@ -250,8 +250,7 @@
     }
 
     .pricing-card.popular {
-      border-color: var(--accent-pink);
-      box-shadow: 0 15px 40px rgba(236, 72, 153, 0.15);
+      border-color: rgba(236, 72, 153, 0.4);
     }
 
     .popular-tag {
@@ -457,6 +456,17 @@
     .form-group textarea:focus, .form-group input:focus, .form-group select:focus {
       outline: none;
       border-color: var(--accent-pink);
+    }
+
+    .form-group textarea.error {
+      border-color: #ef4444;
+    }
+
+    .error-hint {
+      color: #ef4444;
+      font-size: 0.78rem;
+      margin-top: 6px;
+      display: none;
     }
 
     .btn {
@@ -768,18 +778,18 @@
 
     <div class="section-title">Transparent <span>Pricing Plans</span></div>
     <div class="pricing-grid">
-      <div class="pricing-card" onclick="selectPackage(1, 5.00)">
+      <div class="pricing-card" data-count="1" onclick="selectPackage(1)">
         <h4>1 Photo</h4>
         <div class="price">€5.00</div>
         <p>1 hour turnaround</p>
       </div>
-      <div class="pricing-card popular" onclick="selectPackage(2, 7.50)">
+      <div class="pricing-card popular selected" data-count="2" onclick="selectPackage(2)">
         <div class="popular-tag">Most Popular</div>
         <h4>2 Photos</h4>
         <div class="price">€7.50</div>
         <p>Perfect for a quick duo update</p>
       </div>
-      <div class="pricing-card" onclick="selectPackage(3, 10.00)">
+      <div class="pricing-card" data-count="3" onclick="selectPackage(3)">
         <h4>3 Photos</h4>
         <div class="price">€10.00</div>
         <p>Full mini-batch bundle</p>
@@ -847,22 +857,23 @@
 
     <div class="order-box">
       <div class="section-title" style="margin-bottom: 15px; font-size: 2rem;">Quick <span>Commission</span></div>
-      <div class="dynamic-price-tag" id="displayPrice">€5.00</div>
+      <div class="dynamic-price-tag" id="displayPrice">€7.50</div>
       
       <div class="commission-form">
         <div class="form-group">
           <label for="photoCount">Select Package:</label>
-          <select id="photoCount" onchange="updatePricing()">
+          <select id="photoCount" onchange="syncPricingFromDropdown()">
             <option value="1">1 Photo (€5.00)</option>
-            <option value="2">2 Photos (€7.50)</option>
+            <option value="2" selected>2 Photos (€7.50)</option>
             <option value="3">3 Photos (€10.00)</option>
           </select>
         </div>
         <div class="form-group">
           <label for="clientDetails">Describe your edit requirements:</label>
           <textarea id="clientDetails" rows="4" placeholder="e.g. Remove background distractions, smoothen skin naturally, enhance contrast..."></textarea>
+          <div class="error-hint" id="errorHint">Please briefly describe your editing requirements before proceeding.</div>
         </div>
-        <button type="button" id="sendWhatsAppBtn" class="btn whatsapp-btn">Send Details & Pay</button>
+        <button type="button" id="sendWhatsAppBtn" class="btn whatsapp-btn">Send Details & Pay (€7.50)</button>
       </div>
     </div>
 
@@ -887,7 +898,7 @@
   <div class="payment-modal" id="paymentModal">
     <div class="payment-box">
       <h3>Complete Your Payment</h3>
-      <p id="modalPaymentText">Your message has been initiated on WhatsApp! Please go to this tab and complete your secure payment via Revolut to begin the 1-hour countdown.</p>
+      <p id="modalPaymentText">Your WhatsApp order has been initiated! Switch back here and complete your secure payment via Revolut to lock in your 1-hour turnaround countdown.</p>
       <a href="https://revolut.me/shanedzlt" target="_blank" class="btn revolut-popup-btn" id="payNowBtn">Pay via Revolut</a>
       <button type="button" class="btn close-popup-btn" id="closeModalBtn">Close Window</button>
     </div>
@@ -905,53 +916,79 @@
   </footer>
 
   <script>
-    // Pricing calculation logic for 1, 2, or 3 photos
     function calculatePrice(count) {
       if (count === 2) return 7.50;
       if (count === 3) return 10.00;
-      return 5.00; // Default for 1 photo
+      return 5.00;
     }
 
     const photoCountSelect = document.getElementById('photoCount');
     const displayPrice = document.getElementById('displayPrice');
     const sendWhatsAppBtn = document.getElementById('sendWhatsAppBtn');
     const clientDetails = document.getElementById('clientDetails');
+    const errorHint = document.getElementById('errorHint');
     const paymentModal = document.getElementById('paymentModal');
     const closeModalBtn = document.getElementById('closeModalBtn');
     const payNowBtn = document.getElementById('payNowBtn');
     const modalPaymentText = document.getElementById('modalPaymentText');
+    const pricingCards = document.querySelectorAll('.pricing-card');
 
-    function updatePricing() {
-      const count = parseInt(photoCountSelect.value);
+    function updateUIState(count) {
       const price = calculatePrice(count);
       displayPrice.textContent = '€' + price.toFixed(2);
       sendWhatsAppBtn.textContent = `Send Details & Pay (€${price.toFixed(2)})`;
+
+      pricingCards.forEach(card => {
+        if (parseInt(card.dataset.count) === count) {
+          card.classList.add('selected');
+        } else {
+          card.classList.remove('selected');
+        }
+      });
     }
 
-    function selectPackage(count, presetPrice) {
+    function selectPackage(count) {
       photoCountSelect.value = count;
-      updatePricing();
+      updateUIState(count);
       document.querySelector('.order-box').scrollIntoView({ behavior: 'smooth' });
     }
 
+    function syncPricingFromDropdown() {
+      const count = parseInt(photoCountSelect.value);
+      updateUIState(count);
+    }
+
+    clientDetails.addEventListener('input', () => {
+      if (clientDetails.value.trim().length > 0) {
+        clientDetails.classList.remove('error');
+        errorHint.style.display = 'none';
+      }
+    });
+
     sendWhatsAppBtn.addEventListener('click', () => {
-      const count = photoCountSelect.value;
-      const price = calculatePrice(parseInt(count)).toFixed(2);
       const userText = clientDetails.value.trim();
-      const defaultText = `Hi, I would like to commission a photo edit for ${count} photo(s) (€${price}): Request received!`;
-      const finalMessage = userText ? `${defaultText} ${userText}` : defaultText;
+
+      if (!userText) {
+        clientDetails.classList.add('error');
+        errorHint.style.display = 'block';
+        clientDetails.scrollIntoView({ behavior: 'smooth', block: 'center' });
+        return;
+      }
+
+      const count = parseInt(photoCountSelect.value);
+      const price = calculatePrice(count).toFixed(2);
+      const defaultText = `Hi, I would like to commission a photo edit for ${count} photo(s) (€${price}):`;
+      const finalMessage = `${defaultText} ${userText}`;
       
       const whatsappUrl = `https://wa.me/353833753751?text=${encodeURIComponent(finalMessage)}`;
-      
-      // Opens WhatsApp in a new tab, keeping your website open underneath
       window.open(whatsappUrl, '_blank');
 
-      modalPaymentText.innerHTML = `Your message for ${count} photo(s) has been initiated on WhatsApp! Please switch to this tab and complete your secure <strong>€${price}</strong> payment via Revolut to begin the 1-hour countdown.`;
+      modalPaymentText.innerHTML = `Your message for ${count} photo(s) has been opened in WhatsApp! Please switch back to this browser tab and complete your secure <strong>€${price}</strong> payment via Revolut to start your 1-hour countdown.`;
       payNowBtn.textContent = `Pay €${price} via Revolut`;
 
       setTimeout(() => {
         paymentModal.classList.add('active');
-      }, 600);
+      }, 500);
     });
 
     closeModalBtn.addEventListener('click', () => {
@@ -968,7 +1005,6 @@
       }
     });
 
-    // Lightbox Zoom Logic
     const lightboxModal = document.getElementById('lightboxModal');
     const lightboxImg = document.getElementById('lightboxImg');
     const lightboxClose = document.getElementById('lightboxClose');
@@ -991,7 +1027,6 @@
       }
     });
 
-    // FAQ Accordion Logic
     const faqItems = document.querySelectorAll('.faq-item');
     faqItems.forEach(item => {
       const question = item.querySelector('.faq-question');
