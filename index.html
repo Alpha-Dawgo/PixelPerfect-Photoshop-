@@ -161,6 +161,71 @@
       line-height: 1.6;
     }
 
+    /* Instructions Section */
+    .instructions-card {
+      background: var(--bg-card);
+      border: 1px solid var(--border-gradient);
+      border-radius: 24px;
+      padding: 40px;
+      margin-bottom: 90px;
+      backdrop-filter: blur(20px);
+      box-shadow: 0 20px 40px rgba(0,0,0,0.3);
+    }
+
+    .instructions-card h3 {
+      font-size: 1.5rem;
+      margin-top: 0;
+      margin-bottom: 25px;
+      text-align: center;
+      font-weight: 700;
+    }
+
+    .instructions-list {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+      gap: 25px;
+    }
+
+    .instruction-step {
+      background: rgba(12, 14, 20, 0.7);
+      border: 1px solid var(--border-gradient);
+      border-radius: 16px;
+      padding: 25px;
+    }
+
+    .instruction-step .step-num {
+      display: inline-block;
+      width: 32px;
+      height: 32px;
+      background: var(--accent-glow);
+      color: #f472b6;
+      border: 1px solid rgba(236, 72, 153, 0.3);
+      border-radius: 50%;
+      text-align: center;
+      line-height: 30px;
+      font-weight: 800;
+      font-size: 0.85rem;
+      margin-bottom: 15px;
+    }
+
+    .instruction-step h4 {
+      font-size: 1.05rem;
+      margin: 0 0 8px 0;
+      font-weight: 700;
+    }
+
+    .instruction-step p {
+      font-size: 0.9rem;
+      color: var(--text-muted);
+      margin: 0;
+      line-height: 1.6;
+    }
+
+    .highlight-return {
+      color: #f472b6;
+      font-weight: 600;
+    }
+
     /* Pricing Tiers Section (1, 5, or 10 Photos) */
     .pricing-grid {
       display: grid;
@@ -676,6 +741,27 @@
 
   <div class="container">
     
+    <div class="instructions-card">
+      <h3>How It Works</h3>
+      <div class="instructions-list">
+        <div class="instruction-step">
+          <div class="step-num">1</div>
+          <h4>Describe & Submit</h4>
+          <p>Fill out the form below with your edit description and package choice, then click send to open WhatsApp and send your details.</p>
+        </div>
+        <div class="instruction-step">
+          <div class="step-num">2</div>
+          <h4>Send Your Photos</h4>
+          <p>Attach your photos directly inside the open WhatsApp chat so we can begin working on them.</p>
+        </div>
+        <div class="instruction-step">
+          <div class="step-num">3</div>
+          <h4>Complete Payment</h4>
+          <p><span class="highlight-return">Return to this browser tab to complete your payment</span> via Revolut to kick off your 1-hour turnaround countdown!</p>
+        </div>
+      </div>
+    </div>
+
     <div class="section-title">What Photoshop <span>Can Do</span></div>
     <div class="showcase-grid">
       <div class="showcase-card">
@@ -784,15 +870,15 @@
     <div class="faq-container">
       <div class="faq-item">
         <div class="faq-question">How do I send my photos? <span>+</span></div>
-        <div class="faq-answer">Type what you want above and click the button to send it via WhatsApp. You can then attach your photos right inside the chat!</div>
+        <div class="faq-answer">Type what you want above and click the button to send it via WhatsApp. You can then attach your photos right inside the chat! Remember to return to this browser tab to complete your payment.</div>
       </div>
       <div class="faq-item">
         <div class="faq-question">What is the delivery time? <span>+</span></div>
-        <div class="faq-answer">All commissions are completed and delivered straight to your WhatsApp within 1 hour after payment.</div>
+        <div class="faq-answer">All commissions are completed and delivered straight to your WhatsApp within 1 hour after payment is received.</div>
       </div>
       <div class="faq-item">
         <div class="faq-question">How does payment work? <span>+</span></div>
-        <div class="faq-answer">Once your WhatsApp message opens and is sent, a secure payment window will pop up automatically for your total fee via Revolut.</div>
+        <div class="faq-answer">After sending your WhatsApp message, return to this browser tab to complete your secure payment via Revolut.</div>
       </div>
     </div>
 
@@ -801,7 +887,7 @@
   <div class="payment-modal" id="paymentModal">
     <div class="payment-box">
       <h3>Complete Your Payment</h3>
-      <p id="modalPaymentText">Your message has been initiated on WhatsApp! Please complete your secure commission via Revolut to begin the 1-hour countdown.</p>
+      <p id="modalPaymentText">Your message has been initiated on WhatsApp! Please return to this tab and complete your secure payment via Revolut to begin the 1-hour countdown.</p>
       <a href="https://revolut.me/shanedzlt" target="_blank" class="btn revolut-popup-btn" id="payNowBtn">Pay via Revolut</a>
       <button type="button" class="btn close-popup-btn" id="closeModalBtn">Close Window</button>
     </div>
@@ -852,13 +938,15 @@
       const count = photoCountSelect.value;
       const price = calculatePrice(parseInt(count)).toFixed(2);
       const userText = clientDetails.value.trim();
-      const defaultText = `Hi, I would like to commission a photo edit for ${count} photo(s) (€${price}):`;
+      const defaultText = `Hi, I would like to commission a photo edit for ${count} photo(s) (€${price}): Request received! Please return to the site to pay.`;
       const finalMessage = userText ? `${defaultText} ${userText}` : defaultText;
       
       const whatsappUrl = `https://wa.me/353833753751?text=${encodeURIComponent(finalMessage)}`;
+      
+      // Opens WhatsApp in a new tab, keeping your website open underneath
       window.open(whatsappUrl, '_blank');
 
-      modalPaymentText.innerHTML = `Your message for ${count} photo(s) has been initiated on WhatsApp! Please complete your secure <strong>€${price}</strong> commission via Revolut to begin the 1-hour countdown.`;
+      modalPaymentText.innerHTML = `Your message for ${count} photo(s) has been initiated on WhatsApp! Please return to this tab and complete your secure <strong>€${price}</strong> payment via Revolut to begin the 1-hour countdown.`;
       payNowBtn.textContent = `Pay €${price} via Revolut`;
 
       setTimeout(() => {
