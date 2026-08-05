@@ -766,4 +766,156 @@
       <div class="commission-form">
         <div class="form-group">
           <label for="photoCount">Select Package:</label>
-          <select id="photoCount" onchan
+          <select id="photoCount" onchange="updatePricing()">
+            <option value="1">1 Photo (€5.00)</option>
+            <option value="5">5 Photos (€15.00)</option>
+            <option value="10">10 Photos (€20.00)</option>
+          </select>
+        </div>
+        <div class="form-group">
+          <label for="clientDetails">Describe your edit requirements:</label>
+          <textarea id="clientDetails" rows="4" placeholder="e.g. Remove background distractions, smoothen skin naturally, enhance contrast..."></textarea>
+        </div>
+        <button type="button" id="sendWhatsAppBtn" class="btn whatsapp-btn">Send Details & Pay</button>
+      </div>
+    </div>
+
+    <div class="section-title">Frequently Asked <span>Questions</span></div>
+    <div class="faq-container">
+      <div class="faq-item">
+        <div class="faq-question">How do I send my photos? <span>+</span></div>
+        <div class="faq-answer">Type what you want above and click the button to send it via WhatsApp. You can then attach your photos right inside the chat!</div>
+      </div>
+      <div class="faq-item">
+        <div class="faq-question">What is the delivery time? <span>+</span></div>
+        <div class="faq-answer">All commissions are completed and delivered straight to your WhatsApp within 1 hour after payment.</div>
+      </div>
+      <div class="faq-item">
+        <div class="faq-question">How does payment work? <span>+</span></div>
+        <div class="faq-answer">Once your WhatsApp message opens and is sent, a secure payment window will pop up automatically for your total fee via Revolut.</div>
+      </div>
+    </div>
+
+  </div>
+
+  <div class="payment-modal" id="paymentModal">
+    <div class="payment-box">
+      <h3>Complete Your Payment</h3>
+      <p id="modalPaymentText">Your message has been initiated on WhatsApp! Please complete your secure commission via Revolut to begin the 1-hour countdown.</p>
+      <a href="https://revolut.me/shanedzlt" target="_blank" class="btn revolut-popup-btn" id="payNowBtn">Pay via Revolut</a>
+      <button type="button" class="btn close-popup-btn" id="closeModalBtn">Close Window</button>
+    </div>
+  </div>
+
+  <div class="lightbox-modal" id="lightboxModal">
+    <span class="lightbox-close" id="lightboxClose">&times;</span>
+    <img class="lightbox-content" id="lightboxImg" alt="Enlarged Showcase View">
+  </div>
+
+  <a href="https://wa.me/353833753751?text=Hi,%20I%20would%20like%20to%20commission%20a%20photo%20edit:" target="_blank" class="floating-whatsapp" title="Chat on WhatsApp">✦</a>
+
+  <footer>
+    <p>&copy; 2026 PixelPerfect Retouch. All rights reserved.</p>
+  </footer>
+
+  <script>
+    // Pricing calculation logic for 1, 5, or 10 photos
+    function calculatePrice(count) {
+      if (count === 5) return 15.00;
+      if (count === 10) return 20.00;
+      return 5.00; // Default for 1 photo
+    }
+
+    const photoCountSelect = document.getElementById('photoCount');
+    const displayPrice = document.getElementById('displayPrice');
+    const sendWhatsAppBtn = document.getElementById('sendWhatsAppBtn');
+    const clientDetails = document.getElementById('clientDetails');
+    const paymentModal = document.getElementById('paymentModal');
+    const closeModalBtn = document.getElementById('closeModalBtn');
+    const payNowBtn = document.getElementById('payNowBtn');
+    const modalPaymentText = document.getElementById('modalPaymentText');
+
+    function updatePricing() {
+      const count = parseInt(photoCountSelect.value);
+      const price = calculatePrice(count);
+      displayPrice.textContent = '€' + price.toFixed(2);
+      sendWhatsAppBtn.textContent = `Send Details & Pay (€${price.toFixed(2)})`;
+    }
+
+    function selectPackage(count, presetPrice) {
+      photoCountSelect.value = count;
+      updatePricing();
+      document.querySelector('.order-box').scrollIntoView({ behavior: 'smooth' });
+    }
+
+    sendWhatsAppBtn.addEventListener('click', () => {
+      const count = photoCountSelect.value;
+      const price = calculatePrice(parseInt(count)).toFixed(2);
+      const userText = clientDetails.value.trim();
+      const defaultText = `Hi, I would like to commission a photo edit for ${count} photo(s) (€${price}):`;
+      const finalMessage = userText ? `${defaultText} ${userText}` : defaultText;
+      
+      const whatsappUrl = `https://wa.me/353833753751?text=${encodeURIComponent(finalMessage)}`;
+      window.open(whatsappUrl, '_blank');
+
+      modalPaymentText.innerHTML = `Your message for ${count} photo(s) has been initiated on WhatsApp! Please complete your secure <strong>€${price}</strong> commission via Revolut to begin the 1-hour countdown.`;
+      payNowBtn.textContent = `Pay €${price} via Revolut`;
+
+      setTimeout(() => {
+        paymentModal.classList.add('active');
+      }, 600);
+    });
+
+    closeModalBtn.addEventListener('click', () => {
+      paymentModal.classList.remove('active');
+    });
+
+    payNowBtn.addEventListener('click', () => {
+      paymentModal.classList.remove('active');
+    });
+
+    paymentModal.addEventListener('click', (e) => {
+      if (e.target === paymentModal) {
+        paymentModal.classList.remove('active');
+      }
+    });
+
+    // Lightbox Zoom Logic
+    const lightboxModal = document.getElementById('lightboxModal');
+    const lightboxImg = document.getElementById('lightboxImg');
+    const lightboxClose = document.getElementById('lightboxClose');
+    const lightboxTriggers = document.querySelectorAll('.lightbox-trigger');
+
+    lightboxTriggers.forEach(img => {
+      img.addEventListener('click', () => {
+        lightboxModal.classList.add('active');
+        lightboxImg.src = img.src;
+      });
+    });
+
+    lightboxClose.addEventListener('click', () => {
+      lightboxModal.classList.remove('active');
+    });
+
+    lightboxModal.addEventListener('click', (e) => {
+      if (e.target === lightboxModal) {
+        lightboxModal.classList.remove('active');
+      }
+    });
+
+    // FAQ Accordion Logic
+    const faqItems = document.querySelectorAll('.faq-item');
+    faqItems.forEach(item => {
+      const question = item.querySelector('.faq-question');
+      question.addEventListener('click', () => {
+        const isActive = item.classList.contains('active');
+        faqItems.forEach(i => i.classList.remove('active'));
+        if (!isActive) {
+          item.classList.add('active');
+        }
+      });
+    });
+  </script>
+
+</body>
+</html>
