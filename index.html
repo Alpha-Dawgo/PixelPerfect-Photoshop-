@@ -751,7 +751,7 @@
         </div>
       </div>
       <div class="showcase-card">
-        <img src="17859407593483571385301939986195.jpg" alt="Object Removal Before and After" class="lightbox-trigger">
+        <img src="Clone-stamp-before-after1200px (1).jpg" alt="Object Removal Before and After" class="lightbox-trigger">
         <div class="showcase-content">
           <h3>Object Removal</h3>
           <p>Clean up cluttered backgrounds, unwanted distractions, photobombers, and blemishes seamlessly.</p>
@@ -791,4 +791,212 @@
     <div class="pricing-grid">
       <div class="pricing-card" onclick="selectPackage(1, 5.00)">
         <h4>Single Photo</h4>
-        <div class="price">$5</di
+        <div class="price">$5</div>
+        <p>1 professionally edited photo with a 1-hour turnaround.</p>
+      </div>
+      <div class="pricing-card popular" onclick="selectPackage(5, 20.00)">
+        <div class="popular-tag">Most Popular</div>
+        <h4>Creator Pack (5 Photos)</h4>
+        <div class="price">$20</div>
+        <p>5 edited photos ($4/ea) with priority queue and 1-hour turnaround.</p>
+      </div>
+      <div class="pricing-card" onclick="selectPackage(10, 35.00)">
+        <h4>Feed Bundle (10 Photos)</h4>
+        <div class="price">$35</div>
+        <p>10 edited photos ($3.50/ea) to revamp your entire grid aesthetic.</p>
+      </div>
+    </div>
+
+    <div class="order-box">
+      <div class="section-title" style="margin-bottom: 20px;">Place Your <span>Order</span></div>
+      <div class="dynamic-price-tag" id="displayPrice">$20.00</div>
+      
+      <div class="commission-form">
+        <div class="form-group">
+          <label for="packageSelect">Selected Package</label>
+          <select id="packageSelect" onchange="onPackageDropdownChange()">
+            <option value="1">Single Photo ($5.00)</option>
+            <option value="5" selected>Creator Pack - 5 Photos ($20.00)</option>
+            <option value="10">Feed Bundle - 10 Photos ($35.00)</option>
+          </select>
+        </div>
+        <div class="form-group">
+          <label for="clientName">Your Name / Instagram Handle</label>
+          <input type="text" id="clientName" placeholder="e.g. @janedoe">
+        </div>
+        <div class="form-group">
+          <label for="editNotes">Edit Instructions & Details</label>
+          <textarea id="editNotes" rows="4" placeholder="Tell us what you need: skin retouch, background cleanup, warm cozy vibe, etc."></textarea>
+        </div>
+      </div>
+
+      <button class="btn whatsapp-btn" onclick="submitOrder()">Proceed to WhatsApp & Pay</button>
+    </div>
+
+    <div class="section-title">Client <span>Testimonials</span></div>
+    <div class="testimonials-grid">
+      <div class="testimonial-card">
+        <p>&ldquo;Absolute game changer for my grid. The skin retouching looks totally natural, not plastic at all. Got my photos back in under an hour!&rdquo;</p>
+        <h4>@sarahstyle</h4>
+      </div>
+      <div class="testimonial-card">
+        <p>&ldquo;Super fast and incredibly professional. Cleaned up a busy background and the color grading matched my exact aesthetic.&rdquo;</p>
+        <h4>@liam_visuals</h4>
+      </div>
+      <div class="testimonial-card">
+        <p>&ldquo;The 5-photo creator pack is my absolute go-to now before every post drop. Worth every single penny.&rdquo;</p>
+        <h4>@elena_creates</h4>
+      </div>
+    </div>
+
+    <div class="trust-badges">
+      <div class="trust-badge-item">
+        <div class="icon">⚡</div>
+        <h5>1-Hour Turnaround</h5>
+        <p>Quick delivery so you never miss a posting schedule.</p>
+      </div>
+      <div class="trust-badge-item">
+        <div class="icon">🔒</div>
+        <h5>Secure Revolut Checkout</h5>
+        <p>Safe and seamless payments protected via Revolut.</p>
+      </div>
+      <div class="trust-badge-item">
+        <div class="icon">💬</div>
+        <h5>Direct WhatsApp Chat</h5>
+        <p>Real-time communication and instant photo sharing.</p>
+      </div>
+      <div class="trust-badge-item">
+        <div class="icon">✨</div>
+        <h5>Natural Retouching</h5>
+        <p>Flawless enhancements that keep your authentic look.</p>
+      </div>
+    </div>
+
+    <div class="section-title">Frequently Asked <span>Questions</span></div>
+    <div class="faq-container">
+      <div class="faq-item">
+        <div class="faq-question">How do I send my photos? <span>+</span></div>
+        <div class="faq-answer">Once you click the order button, it will open a WhatsApp chat with your pre-filled order details. You can simply attach your high-res photos right into the chat!</div>
+      </div>
+      <div class="faq-item">
+        <div class="faq-question">What is the turnaround time? <span>+</span></div>
+        <div class="faq-answer">Standard delivery is completed within 1 hour after payment is confirmed, ensuring you can keep your content pipeline moving fast.</div>
+      </div>
+      <div class="faq-item">
+        <div class="faq-question">Can I request revisions? <span>+</span></div>
+        <div class="faq-answer">Yes! We want you to love your photos. Minor tweaks and adjustments are included free of charge until you're completely satisfied.</div>
+      </div>
+      <div class="faq-item">
+        <div class="faq-question">Is payment secure? <span>+</span></div>
+        <div class="faq-answer">All payments are handled securely through Revolut, one of the world's most trusted digital payment platforms.</div>
+      </div>
+    </div>
+
+  </div>
+
+  <div class="payment-modal" id="paymentModal">
+    <div class="payment-box">
+      <h3>Complete Your Payment</h3>
+      <p id="modalSubtext">You're almost done! Please click below to complete your secure payment via Revolut. Once paid, your 1-hour turnaround countdown begins!</p>
+      <a href="https://revolut.me" target="_blank" class="btn revolut-popup-btn" id="revolutLink">Pay via Revolut ($20.00)</a>
+      <button class="btn close-popup-btn" onclick="closePaymentModal()">Close & Return</button>
+    </div>
+  </div>
+
+  <div class="lightbox-modal" id="lightboxModal" onclick="closeLightbox()">
+    <span class="lightbox-close">&times;</span>
+    <img class="lightbox-content" id="lightboxImg">
+  </div>
+
+  <footer>
+    <p>&copy; 2026 PixelPerfect Retouch. All rights reserved.</p>
+  </footer>
+
+  <a href="https://wa.me/" target="_blank" class="floating-whatsapp" title="Chat on WhatsApp">&#128172;</a>
+
+  <script>
+    let currentPhotos = 5;
+    let currentPrice = 20.00;
+
+    function selectPackage(photos, price) {
+      currentPhotos = photos;
+      currentPrice = price;
+      
+      // Update dropdown state
+      document.getElementById('packageSelect').value = photos;
+      
+      // Update UI highlights
+      document.querySelectorAll('.pricing-card').forEach(card => card.classList.remove('selected'));
+      event.currentTarget.classList.add('selected');
+      
+      updateDisplay();
+    }
+
+    function onPackageDropdownChange() {
+      const select = document.getElementById('packageSelect');
+      const val = parseInt(select.value);
+      if (val === 1) {
+        currentPhotos = 1;
+        currentPrice = 5.00;
+      } else if (val === 5) {
+        currentPhotos = 5;
+        currentPrice = 20.00;
+      } else if (val === 10) {
+        currentPhotos = 10;
+        currentPrice = 35.00;
+      }
+      updateDisplay();
+    }
+
+    function updateDisplay() {
+      document.getElementById('displayPrice').innerText = '$' + currentPrice.toFixed(2);
+    }
+
+    function submitOrder() {
+      const name = document.getElementById('clientName').value.trim();
+      const notes = document.getElementById('editNotes').value.trim();
+      
+      const text = `Hi! I would like to order an edit package.%0A- Package: ${currentPhotos} Photo(s)%0A- Price: $${currentPrice.toFixed(2)}%0A- Name/Handle: ${name || 'Not specified'}%0A- Instructions: ${notes || 'Standard retouching'}`;
+      
+      // Open WhatsApp
+      window.open(`https://wa.me/?text=${text}`, '_blank');
+      
+      // Show Revolut Payment Popup
+      document.getElementById('modalSubtext').innerText = `Your package (${currentPhotos} photo(s)) totals $${currentPrice.toFixed(2)}. Please complete your payment via Revolut below to start your order!`;
+      document.getElementById('revolutLink').innerText = `Pay via Revolut ($${currentPrice.toFixed(2)})`;
+      document.getElementById('paymentModal').classList.add('active');
+    }
+
+    function closePaymentModal() {
+      document.getElementById('paymentModal').classList.remove('active');
+    }
+
+    // FAQ Accordion functionality
+    document.querySelectorAll('.faq-question').forEach(question => {
+      question.addEventListener('click', () => {
+        const item = question.parentElement;
+        const isActive = item.classList.contains('active');
+        
+        document.querySelectorAll('.faq-item').forEach(i => i.classList.remove('active'));
+        if (!isActive) {
+          item.classList.add('active');
+        }
+      });
+    });
+
+    // Lightbox functionality
+    document.querySelectorAll('.lightbox-trigger').forEach(img => {
+      img.addEventListener('click', () => {
+        const modal = document.getElementById('lightboxModal');
+        const modalImg = document.getElementById('lightboxImg');
+        modal.classList.add('active');
+        modalImg.src = img.src;
+      });
+    });
+
+    function closeLightbox() {
+      document.getElementById('lightboxModal').classList.remove('active');
+    }
+  </script>
+</body>
+</html>
